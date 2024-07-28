@@ -49,5 +49,10 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             UC_ManHinh uc = new UC_ManHinh();
             _mainForm.AddControlsToPanel(uc);
         }
+
+        private void UC_QLDN_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

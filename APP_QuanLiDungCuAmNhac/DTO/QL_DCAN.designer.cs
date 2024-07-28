@@ -22,7 +22,7 @@ namespace DTO
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_DCAN")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_DCAN1")]
 	public partial class QL_DCANDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -75,7 +75,7 @@ namespace DTO
     #endregion
 		
 		public QL_DCANDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QL_DCANConnectionString, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QL_DCAN1ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

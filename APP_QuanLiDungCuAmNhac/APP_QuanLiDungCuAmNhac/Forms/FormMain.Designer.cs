@@ -47,11 +47,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.btn_QLKho = new System.Windows.Forms.Button();
             this.btnDQDN = new System.Windows.Forms.Button();
             this.btnQLSP = new System.Windows.Forms.Button();
             this.panelControls = new System.Windows.Forms.Panel();
-            this.btnThongKe = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,9 +68,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(166, 50);
+            this.label7.Location = new System.Drawing.Point(345, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 23);
+            this.label7.Size = new System.Drawing.Size(89, 28);
             this.label7.TabIndex = 0;
             this.label7.Text = "Admin";
             // 
@@ -79,9 +79,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(110, 50);
+            this.label6.Location = new System.Drawing.Point(280, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 23);
+            this.label6.Size = new System.Drawing.Size(69, 28);
             this.label6.TabIndex = 0;
             this.label6.Text = "Role:";
             // 
@@ -91,9 +91,9 @@
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelTime.Location = new System.Drawing.Point(858, 34);
+            this.labelTime.Location = new System.Drawing.Point(838, 6);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(106, 23);
+            this.labelTime.Size = new System.Drawing.Size(126, 28);
             this.labelTime.TabIndex = 0;
             this.labelTime.Text = "HH:MM:SS";
             // 
@@ -102,9 +102,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(165, 19);
+            this.label5.Location = new System.Drawing.Point(143, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 23);
+            this.label5.Size = new System.Drawing.Size(131, 28);
             this.label5.TabIndex = 0;
             this.label5.Text = "Thanh Huy";
             // 
@@ -113,9 +113,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(69, 19);
+            this.label1.Location = new System.Drawing.Point(18, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 23);
+            this.label1.Size = new System.Drawing.Size(130, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome:";
             // 
@@ -129,9 +129,9 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel2.Location = new System.Drawing.Point(215, 48);
+            this.panel2.Location = new System.Drawing.Point(215, 42);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(967, 92);
+            this.panel2.Size = new System.Drawing.Size(967, 38);
             this.panel2.TabIndex = 4;
             // 
             // label4
@@ -139,9 +139,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(18, 18);
+            this.label4.Location = new System.Drawing.Point(18, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(309, 23);
+            this.label4.Size = new System.Drawing.Size(368, 27);
             this.label4.TabIndex = 0;
             this.label4.Text = "MUSIC INSTRUMENT STORE";
             // 
@@ -157,7 +157,7 @@
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.Location = new System.Drawing.Point(923, 0);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(44, 48);
+            this.button9.Size = new System.Drawing.Size(44, 42);
             this.button9.TabIndex = 2;
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button9.UseVisualStyleBackColor = true;
@@ -170,7 +170,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(215, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(967, 48);
+            this.panel4.Size = new System.Drawing.Size(967, 42);
             this.panel4.TabIndex = 2;
             // 
             // button8
@@ -194,7 +194,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(89, 17);
+            this.pictureBox1.Location = new System.Drawing.Point(89, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(49, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +210,7 @@
             this.btnBanHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnBanHang.Image = ((System.Drawing.Image)(resources.GetObject("btnBanHang.Image")));
             this.btnBanHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBanHang.Location = new System.Drawing.Point(0, 140);
+            this.btnBanHang.Location = new System.Drawing.Point(0, 114);
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Size = new System.Drawing.Size(215, 57);
             this.btnBanHang.TabIndex = 2;
@@ -229,7 +229,7 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(215, 140);
+            this.panel3.Size = new System.Drawing.Size(215, 114);
             this.panel3.TabIndex = 0;
             // 
             // label2
@@ -238,9 +238,9 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(50, 82);
+            this.label2.Location = new System.Drawing.Point(12, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 34);
+            this.label2.Size = new System.Drawing.Size(189, 40);
             this.label2.TabIndex = 0;
             this.label2.Text = "MI STORE";
             // 
@@ -261,8 +261,25 @@
             this.panelLeft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(215, 1055);
+            this.panelLeft.Size = new System.Drawing.Size(215, 1050);
             this.panelLeft.TabIndex = 3;
+            // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnThongKe.FlatAppearance.BorderSize = 0;
+            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKe.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
+            this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThongKe.Location = new System.Drawing.Point(0, 342);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(215, 57);
+            this.btnThongKe.TabIndex = 8;
+            this.btnThongKe.Text = "     Thống kê";
+            this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThongKe.UseVisualStyleBackColor = true;
             // 
             // btn_QLKho
             // 
@@ -273,7 +290,7 @@
             this.btn_QLKho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_QLKho.Image = ((System.Drawing.Image)(resources.GetObject("btn_QLKho.Image")));
             this.btn_QLKho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_QLKho.Location = new System.Drawing.Point(0, 311);
+            this.btn_QLKho.Location = new System.Drawing.Point(0, 285);
             this.btn_QLKho.Name = "btn_QLKho";
             this.btn_QLKho.Size = new System.Drawing.Size(215, 57);
             this.btn_QLKho.TabIndex = 7;
@@ -291,7 +308,7 @@
             this.btnDQDN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDQDN.Image = ((System.Drawing.Image)(resources.GetObject("btnDQDN.Image")));
             this.btnDQDN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDQDN.Location = new System.Drawing.Point(0, 254);
+            this.btnDQDN.Location = new System.Drawing.Point(0, 228);
             this.btnDQDN.Name = "btnDQDN";
             this.btnDQDN.Size = new System.Drawing.Size(215, 57);
             this.btnDQDN.TabIndex = 6;
@@ -309,7 +326,7 @@
             this.btnQLSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnQLSP.Image = ((System.Drawing.Image)(resources.GetObject("btnQLSP.Image")));
             this.btnQLSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLSP.Location = new System.Drawing.Point(0, 197);
+            this.btnQLSP.Location = new System.Drawing.Point(0, 171);
             this.btnQLSP.Name = "btnQLSP";
             this.btnQLSP.Size = new System.Drawing.Size(215, 57);
             this.btnQLSP.TabIndex = 4;
@@ -321,32 +338,15 @@
             // panelControls
             // 
             this.panelControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControls.Location = new System.Drawing.Point(215, 140);
+            this.panelControls.Location = new System.Drawing.Point(215, 80);
             this.panelControls.Name = "panelControls";
-            this.panelControls.Size = new System.Drawing.Size(967, 915);
+            this.panelControls.Size = new System.Drawing.Size(967, 970);
             this.panelControls.TabIndex = 5;
-            // 
-            // btnThongKe
-            // 
-            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThongKe.FlatAppearance.BorderSize = 0;
-            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKe.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongKe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
-            this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKe.Location = new System.Drawing.Point(0, 368);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(215, 57);
-            this.btnThongKe.TabIndex = 8;
-            this.btnThongKe.Text = "     Thống kê";
-            this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThongKe.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1182, 1055);
+            this.ClientSize = new System.Drawing.Size(1182, 1050);
             this.Controls.Add(this.panelControls);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);

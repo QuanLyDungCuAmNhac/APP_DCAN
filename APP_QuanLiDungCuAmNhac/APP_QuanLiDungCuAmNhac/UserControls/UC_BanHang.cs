@@ -42,9 +42,13 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 Name = "Xoa",
                 Text = "Xóa",
                 UseColumnTextForButtonValue = true,
-                Width = 60,
-                FlatStyle = FlatStyle.Flat
+                Width = 12,
+                FlatStyle = FlatStyle.Flat,
+                HeaderText = "",
+                FillWeight = 24
+
             };
+            
             dataGridViewHoaDon.Columns.Add(buttonColumn);
 
             // Thêm các cột khác

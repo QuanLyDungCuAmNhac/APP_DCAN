@@ -45,5 +45,10 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             UC_KhuyenMai uc = new UC_KhuyenMai();
             _mainForm.AddControlsToPanel(uc);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

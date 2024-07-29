@@ -24,7 +24,7 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
         private void BtnQLNCC_Click(object sender, EventArgs e)
         {
-            UC_NCC uc = new UC_NCC();
+            Demo uc = new Demo();
             _mainForm.AddControlsToPanel(uc);
         }
 
@@ -32,6 +32,11 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
         {
             UC_KhoHang uc = new UC_KhoHang();
             _mainForm.AddControlsToPanel(uc);
+        }
+
+        private void btnQLNCC_Click_1(object sender, EventArgs e)
+        {
+           
         }
     }
 }

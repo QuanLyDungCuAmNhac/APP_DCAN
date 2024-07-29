@@ -14,7 +14,7 @@ namespace BLL
 
         public BLLLoai()
         {
-
+            
         }
 
         public List<LoaiSP> LoadLoai()

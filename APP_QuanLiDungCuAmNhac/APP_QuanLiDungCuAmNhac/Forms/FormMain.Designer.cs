@@ -52,7 +52,6 @@
             this.btnDQDN = new System.Windows.Forms.Button();
             this.btnQLSP = new System.Windows.Forms.Button();
             this.panelControls = new System.Windows.Forms.Panel();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -349,12 +348,6 @@
             this.panelControls.Size = new System.Drawing.Size(967, 970);
             this.panelControls.TabIndex = 5;
             // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -404,6 +397,5 @@
         private System.Windows.Forms.Button btnDQDN;
         private System.Windows.Forms.Button btn_QLKho;
         private System.Windows.Forms.Button btnThongKe;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

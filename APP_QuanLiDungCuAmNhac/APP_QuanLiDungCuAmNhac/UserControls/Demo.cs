@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace APP_QuanLiDungCuAmNhac.UserControls
 {
-    public partial class UC_KhoHang : UserControl
+    public partial class Demo : UserControl
     {
-        public UC_KhoHang()
+        public Demo()
         {
             InitializeComponent();
-    
-        }
-
-        private void UC_KhoHang_Load(object sender, EventArgs e)
-        {
-          
         }
     }
 }

@@ -253,7 +253,7 @@
             this.btnQLLSP.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQLLSP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnQLLSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQLLSP.FillColor = System.Drawing.Color.Gold;
+            this.btnQLLSP.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnQLLSP.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
             this.btnQLLSP.ForeColor = System.Drawing.Color.White;
             this.btnQLLSP.Location = new System.Drawing.Point(90, 282);
@@ -261,6 +261,7 @@
             this.btnQLLSP.Size = new System.Drawing.Size(406, 102);
             this.btnQLLSP.TabIndex = 30;
             this.btnQLLSP.Text = "Quản lý loại sản phẩm";
+            this.btnQLLSP.Click += new System.EventHandler(this.btnQLLSP_Click);
             // 
             // btnSanPham
             // 

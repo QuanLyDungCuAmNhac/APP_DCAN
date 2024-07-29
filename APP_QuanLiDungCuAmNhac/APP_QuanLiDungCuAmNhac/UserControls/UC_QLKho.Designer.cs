@@ -199,6 +199,7 @@
             this.btnQLNCC.Size = new System.Drawing.Size(406, 101);
             this.btnQLNCC.TabIndex = 31;
             this.btnQLNCC.Text = "Nhà cung cấp";
+            this.btnQLNCC.Click += new System.EventHandler(this.btnQLNCC_Click_1);
             // 
             // panel7
             // 

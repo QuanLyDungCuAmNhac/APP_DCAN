@@ -111,6 +111,7 @@
     <Compile Include="BLLLoai.cs" />
     <Compile Include="BLLNhanVien.cs" />
     <Compile Include="BLLSanPham.cs" />
+    <Compile Include="BLLThuongHieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

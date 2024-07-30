@@ -109,6 +109,7 @@
     <Compile Include="DALLoaiSP.cs" />
     <Compile Include="DALNhanVien.cs" />
     <Compile Include="DALSanPham.cs" />
+    <Compile Include="DALThuongHieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

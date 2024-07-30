@@ -51,7 +51,7 @@
             this.btn_QLKho = new System.Windows.Forms.Button();
             this.btnDQDN = new System.Windows.Forms.Button();
             this.btnQLSP = new System.Windows.Forms.Button();
-            this.panelControls = new System.Windows.Forms.Panel();
+            this.panelControls = new Guna.UI2.WinForms.Guna2Panel();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -343,6 +343,7 @@
             // panelControls
             // 
             this.panelControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControls.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelControls.Location = new System.Drawing.Point(215, 80);
             this.panelControls.Name = "panelControls";
             this.panelControls.Size = new System.Drawing.Size(967, 970);
@@ -391,11 +392,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Panel panelControls;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnQLSP;
         private System.Windows.Forms.Button btnDQDN;
         private System.Windows.Forms.Button btn_QLKho;
         private System.Windows.Forms.Button btnThongKe;
+        private Guna.UI2.WinForms.Guna2Panel panelControls;
     }
 }

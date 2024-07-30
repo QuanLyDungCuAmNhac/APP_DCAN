@@ -41,6 +41,10 @@ namespace BLL
             return KhuyenMaiDAL.LoadSP();
         }
 
+        public bool IsMaKH(int MaKM)
+        {
+            return KhuyenMaiDAL.IsMaKM(MaKM);
+        }
         public void XoaKM(int MaKM)
         {
             KhuyenMaiDAL.XoaKM(MaKM);

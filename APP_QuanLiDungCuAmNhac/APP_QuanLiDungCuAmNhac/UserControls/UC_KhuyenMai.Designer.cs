@@ -48,6 +48,7 @@
             this.cbbKM = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnTim = new Guna.UI2.WinForms.Guna2Button();
             this.txtKM = new Guna.UI2.WinForms.Guna2TextBox();
+            this.SanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKM)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -73,6 +74,8 @@
             this.dgvKM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKM.ColumnHeadersHeight = 30;
             this.dgvKM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvKM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SanPham});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,6 +261,7 @@
             this.btnSua.Size = new System.Drawing.Size(101, 37);
             this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // txtTenKM
             // 
@@ -336,6 +340,7 @@
             this.btnXoa.Size = new System.Drawing.Size(101, 37);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // cbbKM
             // 
@@ -395,6 +400,15 @@
             this.txtKM.Size = new System.Drawing.Size(307, 40);
             this.txtKM.TabIndex = 0;
             // 
+            // SanPham
+            // 
+            this.SanPham.DataPropertyName = "SanPham";
+            this.SanPham.HeaderText = "Column1";
+            this.SanPham.MinimumWidth = 6;
+            this.SanPham.Name = "SanPham";
+            this.SanPham.ReadOnly = true;
+            this.SanPham.Visible = false;
+            // 
             // UC_KhuyenMai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -428,5 +442,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtNgayBD;
         private Guna.UI2.WinForms.Guna2TextBox txtGiamGia;
         private Guna.UI2.WinForms.Guna2ComboBox cbbMaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SanPham;
     }
 }

@@ -50,6 +50,15 @@ namespace DAL
                 return false;
         }
 
+        public bool IsMaKM(int MaKM)
+        {
+            var kt = qldc.KhuyenMais.Where(l => l.MaKM == MaKM).Count();
+            if (kt == 0)
+                return true;
+            else
+                return false;
+        }
+
         public List<KhuyenMai> LoadKMTheoMa(int MaKM)
         {
             return qldc.KhuyenMais.Where(l => l.MaKM == MaKM).ToList<KhuyenMai>();
@@ -90,6 +99,10 @@ namespace DAL
             if (KM != null)
             {
                 KM.TenKM = km.TenKM;
+                KM.GiamGia = km.GiamGia;
+                KM.NgayBD = km.NgayBD;
+                KM.NgayKT = km.NgayKT;
+                KM.MaSP = km.MaSP;
                 qldc.SubmitChanges();
             }
             else

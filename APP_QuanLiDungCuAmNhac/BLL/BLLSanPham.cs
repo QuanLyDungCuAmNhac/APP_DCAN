@@ -25,5 +25,22 @@ namespace BLL
         {
             return SanPhamDAL.LoadSPTheoLoai(maLoai);
         }
+        public void AddSanPham(string tenSP, decimal donGia, int soLuong, string hinhAnh, string moTa, int maLoai, int maThuongHieu, int trangThai)
+        {
+            var product = new SanPham
+            {
+                
+                TenSP = tenSP,
+                DonGia = donGia,
+                SoLuong = soLuong,
+                HinhAnh = hinhAnh,
+                MoTa = moTa,
+                MaLoai = maLoai,
+                MaTH = maThuongHieu,
+                TrangThai = trangThai
+            };
+
+            SanPhamDAL.AddSanPham(product);
+        }
     }
 }

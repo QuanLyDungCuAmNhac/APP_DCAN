@@ -24,5 +24,10 @@ namespace DAL
         {
             return qldc.SanPhams.Where(sp => sp.MaLoai == maLoai).ToList<SanPham>();
         }
+        public void AddSanPham(SanPham sanPham)
+        {
+            qldc.SanPhams.InsertOnSubmit(sanPham);
+            qldc.SubmitChanges();
+        }
     }
 }

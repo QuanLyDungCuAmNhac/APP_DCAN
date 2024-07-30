@@ -94,6 +94,8 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             }
         }
 
+        public object MaSP { get; internal set; }
+
         private async void LoadImageAsync(string imageUrl)
         {
             try

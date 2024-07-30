@@ -206,6 +206,7 @@
             this.btnSanPham.Size = new System.Drawing.Size(406, 99);
             this.btnSanPham.TabIndex = 29;
             this.btnSanPham.Text = "Quản lý sản phẩm";
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
             // btnQLLSP
             // 

@@ -25,7 +25,7 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
         {
             InitializeComponent();
             InitializeDataGridView();
-            btn_TienMat.Enabled = btn_ChuyenKhoan.Enabled = false;
+            btn_TienMat.Enabled = btn_ChuyenKhoan.Enabled = textBox2.Enabled = textBox4.Enabled = textBox3.Enabled = false;
         }
 
         private void sanPhamBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -45,49 +45,73 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 Width = 12,
                 FlatStyle = FlatStyle.Flat,
                 HeaderText = "",
-                FillWeight = 24
+                FillWeight = 30
 
             };
+            dataGridViewHoaDon.Font = new Font("Segoe GUI", 12, FontStyle.Regular);
             
             dataGridViewHoaDon.Columns.Add(buttonColumn);
 
-            // Thêm các cột khác
             dataGridViewHoaDon.Columns.Add("TenSP", "Tên Sản Phẩm");
             dataGridViewHoaDon.Columns.Add("DonGia", "Đơn Giá");
             dataGridViewHoaDon.Columns.Add("SoLuong", "Số Lượng");
             dataGridViewHoaDon.Columns.Add("TongTien", "Tổng Tiền");
 
-            // Đặt các thuộc tính cho DataGridView
+
+            dataGridViewHoaDon.Columns["TenSP"].ReadOnly = true;
+            dataGridViewHoaDon.Columns["DonGia"].ReadOnly = true;
+            dataGridViewHoaDon.Columns["TongTien"].ReadOnly = true;
             dataGridViewHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewHoaDon.AllowUserToAddRows = false;
             dataGridViewHoaDon.AllowUserToDeleteRows = false;
             dataGridViewHoaDon.CellContentClick += dataGridViewHoaDon_CellContentClick_1;
         }
 
-      
+
         private void UC_BanHang_Load(object sender, EventArgs e)
         {
             LoadSanPham();
             LoadLoai();
             btn_TienMat.Enabled = btn_ChuyenKhoan.Enabled = dataGridViewHoaDon.Rows.Count > 0;
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
+            textBox2.ReadOnly = true;
+            textBox4.ReadOnly = true;
+
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedCategoryId = (int)comboBox1.SelectedValue;
-
-            // Tải lại sản phẩm theo mã loại sản phẩm
             LoadSanPham(selectedCategoryId);
         }
 
         public void LoadLoai()
         {
-            
+            var loaiList = bllloai.LoadLoai();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaLoai", typeof(int));
+            dt.Columns.Add("TenLoai", typeof(string));
+
+            DataRow dr = dt.NewRow();
+            dr["MaLoai"] = 0; // ID cho "Tất cả"
+            dr["TenLoai"] = "Tất cả";
+            dt.Rows.InsertAt(dr, 0);
+
+            foreach (var loai in loaiList)
+            {
+                dr = dt.NewRow();
+                dr["MaLoai"] = loai.MaLoai;
+                dr["TenLoai"] = loai.TenLoai;
+                dt.Rows.Add(dr);
+            }
+
             comboBox1.DisplayMember = "TenLoai";
             comboBox1.ValueMember = "MaLoai";
-            comboBox1.DataSource = bllloai.LoadLoai();
-            
+            comboBox1.DataSource = dt;
+            //comboBox1.DisplayMember = "TenLoai";
+            //comboBox1.ValueMember = "MaLoai";
+            //comboBox1.DataSource = bllloai.LoadLoai();
+
         }
         public void LoadSanPham(int categoryId = 0)
         {
@@ -108,7 +132,6 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
             foreach (var product in products)
             {
-                // Lấy URL của hình ảnh từ tên ảnh
                 var imageUrl = cloudinary.Api.UrlImgUp.BuildUrl(product.HinhAnh.Trim());
 
                 var sanPhamControl = new My_Control.SanPham
@@ -116,7 +139,6 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                     TenSP = product.TenSP,
                     Price = product.DonGia.ToString(),
                     ImageUrl = imageUrl,
-                    //Location = new System.Drawing.Point(x, y)
                 };
                 sanPhamControl.Click += (s, e) => OnProductClick(product);
                 flowLayoutPanel1.Controls.Add(sanPhamControl);
@@ -125,8 +147,6 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
         private void UpdateTongTien()
         {
             decimal totalAmount = 0;
-
-            // Duyệt qua các hàng của DataGridView và cộng giá trị của cột giá
             foreach (DataGridViewRow row in dataGridViewHoaDon.Rows)
             {
                 if (row.Cells["TongTien"].Value != null)
@@ -135,21 +155,16 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 }
             }
             CultureInfo vietnamCulture = new CultureInfo("vi-VN");
-            //textBoxTongTien.Text = totalAmount.ToString("C", vietnamCulture);
-            // Hiển thị tổng tiền trong TextBox
-            textBox2.Text = totalAmount.ToString("N0",vietnamCulture) + " đ";
+            textBox2.Text = totalAmount.ToString("N0", vietnamCulture) + " đ";
         }
         private void OnProductClick(DTO.SanPham product)
         {
             foreach (DataGridViewRow row in dataGridViewHoaDon.Rows)
             {
                 if (row.IsNewRow) continue;
-
-                // Kiểm tra nếu ô "TenSP" không phải là null và so sánh với tên sản phẩm
                 if (row.Cells["TenSP"].Value != null &&
                     row.Cells["TenSP"].Value.ToString() == product.TenSP)
                 {
-                    // Cập nhật số lượng và tổng tiền
                     int currentQuantity = Convert.ToInt32(row.Cells["SoLuong"].Value);
                     currentQuantity += 1;
                     row.Cells["SoLuong"].Value = currentQuantity;
@@ -158,26 +173,19 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 }
             }
 
-            // Nếu sản phẩm chưa có trong DataGridView, thêm mới
-            dataGridViewHoaDon.Rows.Add(null,product.TenSP, product.DonGia, 1, product.DonGia);
+            dataGridViewHoaDon.Rows.Add(null, product.TenSP, product.DonGia, 1, product.DonGia);
             UpdateTongTien();
-            // Nếu sản phẩm chưa có trong DataGridView, thêm mới
-            btn_TienMat.Enabled = btn_ChuyenKhoan.Enabled = dataGridViewHoaDon.Rows.Count > 0;
+            btn_TienMat.Enabled = btn_ChuyenKhoan.Enabled = textBox2.Enabled = textBox4.Enabled = textBox3.Enabled = dataGridViewHoaDon.Rows.Count > 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             decimal totalAmount = 0;
             frmXacNhanThanhToan frm = new frmXacNhanThanhToan();
-
-          
-            // Cấu hình Form để tự động điều chỉnh kích thước
-         //   frm.AutoSize = true;
             frm.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Dock = DockStyle.Fill;
             frm.OnSaveSuccess += Frm_OnSaveSuccess;
-            // Hiển thị Form
             foreach (DataGridViewRow row in dataGridViewHoaDon.Rows)
             {
                 if (!row.IsNewRow)
@@ -191,8 +199,6 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
             }
             CultureInfo vietnamCulture = new CultureInfo("vi-VN");
-            //textBoxTongTien.Text = totalAmount.ToString("C", vietnamCulture);
-            // Hiển thị tổng tiền trong TextBox
             frm.TongTienTextBox.Text = totalAmount.ToString("N0", vietnamCulture) + " đ";
             frm.ShowDialog();
         }
@@ -202,22 +208,17 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
         }
 
-        private void dataGridViewHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+
 
         private void dataGridViewHoaDon_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewHoaDon.Columns["Xoa"].Index)
             {
-                // Kiểm tra nếu có hàng nào trong DataGridView
                 if (dataGridViewHoaDon.Rows.Count > e.RowIndex)
                 {
-                    // Xóa hàng tại e.RowIndex
                     dataGridViewHoaDon.Rows.RemoveAt(e.RowIndex);
                     UpdateTongTien();
-                   btn_TienMat.Enabled = btn_ChuyenKhoan.Enabled = dataGridViewHoaDon.Rows.Count > 0;
+                    btn_TienMat.Enabled = btn_ChuyenKhoan.Enabled = textBox2.Enabled = textBox4.Enabled = textBox3.Enabled = dataGridViewHoaDon.Rows.Count > 0;
                 }
             }
         }
@@ -226,14 +227,14 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
         {
             if (e.RowIndex == -1)
             {
-                
-                using (SolidBrush brush = new SolidBrush(Color.SteelBlue)) // Thay đổi màu nền ở đây
+
+                using (SolidBrush brush = new SolidBrush(Color.SteelBlue))
                 {
                     e.Graphics.FillRectangle(brush, e.CellBounds);
                 }
 
-               
-                using (SolidBrush textBrush = new SolidBrush(Color.White)) // Thay đổi màu văn bản ở đây
+
+                using (SolidBrush textBrush = new SolidBrush(Color.White))
                 {
                     e.Graphics.DrawString(e.Value?.ToString() ?? "", e.CellStyle.Font, textBrush, e.CellBounds,
                         new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
@@ -255,8 +256,6 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             int selectedCategoryId = (int)comboBox1.SelectedValue;
-
-            // Tải lại sản phẩm theo mã loại sản phẩm
             LoadSanPham(selectedCategoryId);
         }
 
@@ -267,7 +266,6 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 e.Handled = true;
             }
         }
-
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
@@ -281,17 +279,12 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
             try
             {
-                // Lấy giá trị hiện tại của textBox3 và loại bỏ dấu chấm
                 string text = textBox3.Text.Replace(".", "");
 
-                // Chuyển đổi giá trị thành số thập phân
                 if (decimal.TryParse(text, out decimal tienKhachDua))
                 {
-                    // Định dạng lại giá trị với dấu chấm ngăn cách hàng nghìn
                     textBox3.Text = tienKhachDua.ToString("N0", new CultureInfo("vi-VN"));
                     textBox3.SelectionStart = textBox3.Text.Length; // Đặt con trỏ chuột ở cuối TextBox
-
-                    // Tính tiền thừa và cập nhật textBox4
                     decimal totalAmount = decimal.Parse(textBox2.Text.Replace(" đ", "").Replace(".", ""), NumberStyles.Currency, new CultureInfo("vi-VN"));
                     decimal tienThua = tienKhachDua - totalAmount;
                     textBox4.Text = tienThua.ToString("N0", new CultureInfo("vi-VN")) + " đ";
@@ -311,6 +304,20 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             dataGridViewHoaDon.Rows.Clear();
             UpdateTongTien();
         }
+
+        private void dataGridViewHoaDon_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewHoaDon.Columns["SoLuong"].Index)
+            {
+                DataGridViewCell cell = dataGridViewHoaDon.Rows[e.RowIndex].Cells["SoLuong"];
+                int newQuantity = Convert.ToInt32(cell.Value);
+                double unitPrice = Convert.ToDouble(dataGridViewHoaDon.Rows[e.RowIndex].Cells["DonGia"].Value);
+                dataGridViewHoaDon.Rows[e.RowIndex].Cells["TongTien"].Value = newQuantity * unitPrice;
+                UpdateTongTien();
+
+            }
+        }
     }
-    
+
 }

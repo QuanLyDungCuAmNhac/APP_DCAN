@@ -176,7 +176,7 @@
             // 
             this.txtTenTH.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenTH.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTenTH.DefaultText = "Tên thương hiệu";
+            this.txtTenTH.DefaultText = "";
             this.txtTenTH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtTenTH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtTenTH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -188,7 +188,7 @@
             this.txtTenTH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenTH.Name = "txtTenTH";
             this.txtTenTH.PasswordChar = '\0';
-            this.txtTenTH.PlaceholderText = "Tên loại";
+            this.txtTenTH.PlaceholderText = "Tên thương hiệu";
             this.txtTenTH.SelectedText = "";
             this.txtTenTH.Size = new System.Drawing.Size(307, 40);
             this.txtTenTH.TabIndex = 6;

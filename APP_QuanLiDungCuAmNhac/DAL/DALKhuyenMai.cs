@@ -1,0 +1,109 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DTO;
+
+namespace DAL
+{
+    public class DALKhuyenMai
+    {
+        QL_DCANDataContext qldc = new QL_DCANDataContext();
+
+        public DALKhuyenMai()
+        {
+
+        }
+        public List<KhuyenMai> LoadKM()
+        {
+            return qldc.KhuyenMais.Select(km => km).ToList<KhuyenMai>();
+        }
+
+        public List<SanPham> LoadSP()
+        {
+            return qldc.SanPhams.Select(km => km).ToList<SanPham>();
+        }
+
+        public bool ThemKM(KhuyenMai KHmoi)
+        {
+            try
+            {
+                qldc.KhuyenMais.InsertOnSubmit(KHmoi);
+                qldc.SubmitChanges();
+                return true; // Trả về true nếu thêm thành công
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có lỗi xảy ra
+                Console.WriteLine("Lỗi khi thêm khuyến mới: " + ex.Message);
+                return false; // Trả về false nếu thêm không thành công
+            }
+        }
+
+        public bool IsTenKM(string TenKM)
+        {
+            var kt = qldc.KhuyenMais.Where(l => l.TenKM == TenKM).Count();
+            if (kt == 0)
+                return true;
+            else
+                return false;
+        }
+
+        public List<KhuyenMai> LoadKMTheoMa(int MaKM)
+        {
+            return qldc.KhuyenMais.Where(l => l.MaKM == MaKM).ToList<KhuyenMai>();
+        }
+
+        public List<KhuyenMai> LoadKMTheoTen(string TenKM)
+        {
+            string seachItem = TenKM.ToLower();
+            return qldc.KhuyenMais.Where(l => l.TenKM.Contains(seachItem)).ToList<KhuyenMai>();
+        }
+
+        public void XoaKM(int MaKM)
+        {
+            var KM = qldc.KhuyenMais.SingleOrDefault(l => l.MaKM == MaKM);
+            if (KM != null)
+            {
+                qldc.KhuyenMais.DeleteOnSubmit(KM);
+                qldc.SubmitChanges();
+            }
+            else
+            {
+                throw new Exception("Loại không tồn tại.");
+            }
+        }
+
+        public bool IsTHOnSP(int MaTH)
+        {
+            var TH = qldc.SanPhams.Where(t => t.MaTH == MaTH).FirstOrDefault();
+            if (TH != null)
+                return true;
+            else
+                return false;
+        }
+
+        public void UpdateKM(KhuyenMai km)
+        {
+            var KM = qldc.KhuyenMais.FirstOrDefault(l => l.MaKM == km.MaKM);
+            if (KM != null)
+            {
+                KM.TenKM = km.TenKM;
+                qldc.SubmitChanges();
+            }
+            else
+                throw new Exception("Loại không tồn tại.");
+        }
+
+        public void InsertTH(KhuyenMai km)
+        {
+            var KM = new KhuyenMai
+            {
+                TenKM = km.TenKM,
+            };
+            qldc.KhuyenMais.InsertOnSubmit(KM);
+            qldc.SubmitChanges();
+        }
+    }
+}

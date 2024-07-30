@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLHoaDon.cs" />
+    <Compile Include="BLLKhuyenMai.cs" />
     <Compile Include="BLLLoai.cs" />
     <Compile Include="BLLNhanVien.cs" />
     <Compile Include="BLLSanPham.cs" />

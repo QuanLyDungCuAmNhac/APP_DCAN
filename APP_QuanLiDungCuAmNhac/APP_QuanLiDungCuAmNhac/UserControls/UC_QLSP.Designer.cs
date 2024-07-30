@@ -259,6 +259,7 @@
             this.btnKhuyenMai.Size = new System.Drawing.Size(406, 102);
             this.btnKhuyenMai.TabIndex = 32;
             this.btnKhuyenMai.Text = "Khuyến mãi";
+            this.btnKhuyenMai.Click += new System.EventHandler(this.btnKhuyenMai_Click);
             // 
             // guna2PictureBox1
             // 

@@ -173,5 +173,11 @@ namespace APP_QuanLiDungCuAmNhac.Forms
             UC_QLKho uch = new UC_QLKho(this);
             AddControlsToPanel(uch);
         }
+
+        private void btnThongKe_Click_1(object sender, EventArgs e)
+        {
+            UC_ThongKe uch = new UC_ThongKe(this);
+            AddControlsToPanel(uch);
+        }
     }
 }

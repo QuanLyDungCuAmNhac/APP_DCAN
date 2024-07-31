@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APP_QuanLiDungCuAmNhac.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 {
     public partial class UC_ThongKe : UserControl
     {
-        public UC_ThongKe()
+        private FormMain _mainForm;
+        public UC_ThongKe(FormMain mainForm)
         {
             InitializeComponent();
+            _mainForm = mainForm;
         }
     }
 }

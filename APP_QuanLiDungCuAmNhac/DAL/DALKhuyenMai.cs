@@ -25,20 +25,18 @@ namespace DAL
             return qldc.SanPhams.Select(km => km).ToList<SanPham>();
         }
 
-        public bool ThemKM(KhuyenMai KHmoi)
+        public void InsertKM(KhuyenMai km)
         {
-            try
+            var KM = new KhuyenMai
             {
-                qldc.KhuyenMais.InsertOnSubmit(KHmoi);
-                qldc.SubmitChanges();
-                return true; // Trả về true nếu thêm thành công
-            }
-            catch (Exception ex)
-            {
-                // Xử lý ngoại lệ nếu có lỗi xảy ra
-                Console.WriteLine("Lỗi khi thêm khuyến mới: " + ex.Message);
-                return false; // Trả về false nếu thêm không thành công
-            }
+                TenKM = km.TenKM,
+                GiamGia = km.GiamGia,
+                NgayBD = km.NgayBD,
+                NgayKT = km.NgayKT,
+                MaSP = km.MaSP
+            };
+            qldc.KhuyenMais.InsertOnSubmit(KM);
+            qldc.SubmitChanges();
         }
 
         public bool IsTenKM(string TenKM)
@@ -107,16 +105,6 @@ namespace DAL
             }
             else
                 throw new Exception("Loại không tồn tại.");
-        }
-
-        public void InsertTH(KhuyenMai km)
-        {
-            var KM = new KhuyenMai
-            {
-                TenKM = km.TenKM,
-            };
-            qldc.KhuyenMais.InsertOnSubmit(KM);
-            qldc.SubmitChanges();
         }
     }
 }

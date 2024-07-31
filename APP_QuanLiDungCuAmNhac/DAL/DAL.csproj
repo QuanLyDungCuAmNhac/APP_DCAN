@@ -106,8 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DALHoaDon.cs" />
+    <Compile Include="DALKho.cs" />
     <Compile Include="DALKhuyenMai.cs" />
     <Compile Include="DALLoaiSP.cs" />
+    <Compile Include="DALNhaCungCap.cs" />
     <Compile Include="DALNhanVien.cs" />
     <Compile Include="DALSanPham.cs" />
     <Compile Include="DALThuongHieu.cs" />

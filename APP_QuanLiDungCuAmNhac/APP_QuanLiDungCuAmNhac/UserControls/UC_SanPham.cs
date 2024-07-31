@@ -107,7 +107,7 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
             imgColumn.Name = "HinhAnh";
             imgColumn.HeaderText = "Hình Ảnh";
-          //  imgColumn.Width = 100; // Thiết lập chiều rộng cột lớn hơn, bạn có thể điều chỉnh giá trị này
+            //  imgColumn.Width = 100; // Thiết lập chiều rộng cột lớn hơn, bạn có thể điều chỉnh giá trị này
 
             imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Hoặc DataGridViewImageCellLayout.Stretch
             dataGridViewSanPham.Columns.Add(imgColumn);

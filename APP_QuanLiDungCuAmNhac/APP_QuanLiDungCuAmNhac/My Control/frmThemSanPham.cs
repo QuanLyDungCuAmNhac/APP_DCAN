@@ -16,7 +16,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
     public partial class frmThemSanPham : Form
     {
         BLLSanPham bll_sp = new BLLSanPham();
-        private Cloudinary cloudinary;
+        
         public frmThemSanPham()
         {
             InitializeComponent();
@@ -52,7 +52,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
 
             bll_sp.AddSanPham(tenSP, donGia, soLuong, hinhAnhUrl, moTa, maLoai, maThuongHieu, trangThai);
 
-         //   LoadProducts(); // Reload data grid view
+         //  LoadProducts(); // Reload data grid view
         }
         private async Task<string> UploadImageToCloudinaryAsync()
         {
@@ -75,7 +75,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
                 };
                 var uploadResult = await cloudinary.UploadAsync(uploadParams);
 
-                return uploadResult.SecureUri.ToString(); // Return the URL of the uploaded image
+                return uploadResult.SecureUrl.ToString(); // Return the URL of the uploaded image
             }
             catch (Exception ex)
             {

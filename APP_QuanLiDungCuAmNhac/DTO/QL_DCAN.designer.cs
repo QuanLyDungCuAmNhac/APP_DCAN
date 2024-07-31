@@ -22,7 +22,7 @@ namespace DTO
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_DCAN1")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_DCAN")]
 	public partial class QL_DCANDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -75,7 +75,7 @@ namespace DTO
     #endregion
 		
 		public QL_DCANDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QL_DCAN1ConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QL_DCANConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1543,7 +1543,7 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKM", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKM", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int MaKM
 		{
 			get

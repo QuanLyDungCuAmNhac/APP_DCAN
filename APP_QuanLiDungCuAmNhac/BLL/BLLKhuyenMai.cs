@@ -62,7 +62,7 @@ namespace BLL
 
         public void InsertKM(KhuyenMai km)
         {
-            KhuyenMaiDAL.InsertTH(km);
+            KhuyenMaiDAL.InsertKM(km);
         }
     }
 }

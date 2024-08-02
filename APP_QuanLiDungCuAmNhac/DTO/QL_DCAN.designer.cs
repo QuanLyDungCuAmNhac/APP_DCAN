@@ -1992,6 +1992,8 @@ namespace DTO
 		
 		private string _Password;
 		
+		private System.Nullable<bool> _HoatDong;
+		
 		private EntitySet<HoaDon> _HoaDons;
 		
 		private EntitySet<QL_NguoiDungNhomNguoiDung> _QL_NguoiDungNhomNguoiDungs;
@@ -2012,6 +2014,8 @@ namespace DTO
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
+    partial void OnHoatDongChanging(System.Nullable<bool> value);
+    partial void OnHoatDongChanged();
     #endregion
 		
 		public NhanVien()
@@ -2137,6 +2141,26 @@ namespace DTO
 					this._Password = value;
 					this.SendPropertyChanged("Password");
 					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoatDong", DbType="Bit")]
+		public System.Nullable<bool> HoatDong
+		{
+			get
+			{
+				return this._HoatDong;
+			}
+			set
+			{
+				if ((this._HoatDong != value))
+				{
+					this.OnHoatDongChanging(value);
+					this.SendPropertyChanging();
+					this._HoatDong = value;
+					this.SendPropertyChanged("HoatDong");
+					this.OnHoatDongChanged();
 				}
 			}
 		}

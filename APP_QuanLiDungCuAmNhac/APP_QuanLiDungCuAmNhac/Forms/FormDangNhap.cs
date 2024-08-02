@@ -14,6 +14,7 @@ namespace APP_QuanLiDungCuAmNhac.Forms
 {
     public partial class FormDangNhap : Form
     {
+        BLLND_NDD DN_NNDBLL = new BLLND_NDD();
         BLLNhanVien NhanVienBLL = new BLLNhanVien();
         public FormDangNhap()
         {
@@ -29,7 +30,7 @@ namespace APP_QuanLiDungCuAmNhac.Forms
         {
             if (NhanVienBLL.Login(textBox1.Text,textBox2.Text) == true)
             {
-                using (FormMain fd = new FormMain())
+                using (FormMain fd = new FormMain(DN_NNDBLL.GetMaNND(textBox1.Text)))
                 {
                     fd.ShowDialog();
                 }

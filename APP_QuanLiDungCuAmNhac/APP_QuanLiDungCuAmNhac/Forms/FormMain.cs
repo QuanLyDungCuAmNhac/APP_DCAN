@@ -2,30 +2,76 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using APP_QuanLiDungCuAmNhac.UserControls;
+using DTO;
+using BLL;
 
 namespace APP_QuanLiDungCuAmNhac.Forms
 {
     public partial class FormMain : Form
     {
+        BLLPhanQuyen PhanQuyenBLL = new BLLPhanQuyen();
+        public string LoggedInMaNhomNguoiDung { get; set; }
         int PanelWidth;
         bool isCollapsed;
-        public FormMain()
+        public FormMain(string UserName)
         {
             InitializeComponent();
             timerTime.Start();
             PanelWidth = panelLeft.Width;
             isCollapsed = false;
-           
-            UC_BanHang uch = new UC_BanHang();
+            label7.Text = UserName;
+             UC_BanHang uch = new UC_BanHang();
             AddControlsToPanel(uch);
+            this.Load += FormMain_Load;
            
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            // Debugging: List all controls' tags
+            LoggedInMaNhomNguoiDung = LoginAndGetMaNhomNguoiDung();
+
+            // Sau khi đăng nhập thành công, cập nhật giao diện dựa trên quyền hạn
+            UpdateUIBasedOnPermissions();
+
+
+        }
+        private string LoginAndGetMaNhomNguoiDung()
+        {
+            // Thực hiện đăng nhập và trả về mã nhóm người dùng
+            return label7.Text.ToString(); // Ví dụ
+        }
+
+        private void UpdateUIBasedOnPermissions()
+        {
+            foreach (Control control in this.Controls)
+            {
+                EnableButtonBasedOnTag(control, LoggedInMaNhomNguoiDung);
+            }
+        }
+
+        public void EnableButtonBasedOnTag(Control control, string maNhom)
+        {
+            if (control is Button btn && btn.Tag != null)
+            {
+                string maManHinh = btn.Tag.ToString();
+                bool coQuyen = PhanQuyenBLL.CheckPermission(maNhom, maManHinh);
+                btn.Enabled = coQuyen;
+            }
+
+            foreach (Control childControl in control.Controls)
+            {
+                EnableButtonBasedOnTag(childControl, maNhom);
+            }
+        }
+
         public void AddControlsToPanel(Control c)
         {
             c.Dock = DockStyle.Fill;

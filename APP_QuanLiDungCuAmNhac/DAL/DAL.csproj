@@ -110,12 +110,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALDN_NDD.cs" />
     <Compile Include="DALHoaDon.cs" />
     <Compile Include="DALKho.cs" />
     <Compile Include="DALKhuyenMai.cs" />
     <Compile Include="DALLoaiSP.cs" />
+    <Compile Include="DALManHinh.cs" />
     <Compile Include="DALNhaCungCap.cs" />
     <Compile Include="DALNhanVien.cs" />
+    <Compile Include="DALNND.cs" />
+    <Compile Include="DALPhanQuyen.cs" />
     <Compile Include="DALSanPham.cs" />
     <Compile Include="DALThuongHieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

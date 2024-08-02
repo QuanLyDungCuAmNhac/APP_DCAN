@@ -24,6 +24,8 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
         private void UC_Loai_Load(object sender, EventArgs e)
         {
+           
+         
             dataGridViewHoaDon.Font = new Font("Century", 15);
             dataGridViewHoaDon.ColumnHeadersDefaultCellStyle.Font = new Font("Century", 17, FontStyle.Bold);
             LoadDGVLoai();

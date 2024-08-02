@@ -215,6 +215,7 @@
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Size = new System.Drawing.Size(215, 52);
             this.btnBanHang.TabIndex = 2;
+            this.btnBanHang.Tag = "MH001";
             this.btnBanHang.Text = "     Bán hàng";
             this.btnBanHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBanHang.UseVisualStyleBackColor = false;
@@ -279,6 +280,7 @@
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(215, 57);
             this.btnThongKe.TabIndex = 8;
+            this.btnThongKe.Tag = "MH005";
             this.btnThongKe.Text = "     Thống kê";
             this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThongKe.UseVisualStyleBackColor = false;
@@ -298,6 +300,7 @@
             this.btn_QLKho.Name = "btn_QLKho";
             this.btn_QLKho.Size = new System.Drawing.Size(215, 57);
             this.btn_QLKho.TabIndex = 7;
+            this.btn_QLKho.Tag = "MH004";
             this.btn_QLKho.Text = "     QL_Kho";
             this.btn_QLKho.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_QLKho.UseVisualStyleBackColor = false;
@@ -317,6 +320,7 @@
             this.btnDQDN.Name = "btnDQDN";
             this.btnDQDN.Size = new System.Drawing.Size(215, 57);
             this.btnDQDN.TabIndex = 6;
+            this.btnDQDN.Tag = "MH003";
             this.btnDQDN.Text = "     QL_Đăng Nhập";
             this.btnDQDN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDQDN.UseVisualStyleBackColor = false;
@@ -336,6 +340,7 @@
             this.btnQLSP.Name = "btnQLSP";
             this.btnQLSP.Size = new System.Drawing.Size(215, 57);
             this.btnQLSP.TabIndex = 4;
+            this.btnQLSP.Tag = "MH002";
             this.btnQLSP.Text = "     QL_Sản phẩm";
             this.btnQLSP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnQLSP.UseVisualStyleBackColor = false;

@@ -28,5 +28,10 @@ namespace BLL
             else
                 return false;
         }
+
+        public void UpdateHoatDongNV(int id, bool HoatDong)
+        {
+            NhanVienDAL.UpdateHoatDongNV(id,HoatDong);
+        }
     }
 }

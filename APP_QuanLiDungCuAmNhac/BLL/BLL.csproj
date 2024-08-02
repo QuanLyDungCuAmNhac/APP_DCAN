@@ -115,8 +115,12 @@
     <Compile Include="BLLKho.cs" />
     <Compile Include="BLLKhuyenMai.cs" />
     <Compile Include="BLLLoai.cs" />
+    <Compile Include="BLLManHinh.cs" />
+    <Compile Include="BLLND_NDD.cs" />
     <Compile Include="BLLNhaCungCap.cs" />
     <Compile Include="BLLNhanVien.cs" />
+    <Compile Include="BLLNND.cs" />
+    <Compile Include="BLLPhanQuyen.cs" />
     <Compile Include="BLLSanPham.cs" />
     <Compile Include="BLLThuongHieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

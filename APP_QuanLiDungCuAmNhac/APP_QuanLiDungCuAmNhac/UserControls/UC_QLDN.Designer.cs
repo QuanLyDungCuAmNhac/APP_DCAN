@@ -42,12 +42,12 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnQLPQ = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDMMH = new Guna.UI2.WinForms.Guna2Button();
-            this.btnQLKH = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btnQLNV = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnQLND_NND = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQLNV = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btnQLKH = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btnDMMH = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQLPQ = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +79,7 @@
             this.btnQLNND.Size = new System.Drawing.Size(406, 77);
             this.btnQLNND.TabIndex = 29;
             this.btnQLNND.Text = "Quản lý nhóm người dùng";
+            this.btnQLNND.Click += new System.EventHandler(this.btnQLNND_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -222,48 +223,41 @@
             this.panel6.Size = new System.Drawing.Size(532, 604);
             this.panel6.TabIndex = 29;
             // 
-            // panel1
+            // btnQLND_NND
             // 
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 604);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 134);
-            this.panel1.TabIndex = 28;
+            this.btnQLND_NND.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnQLND_NND.BorderRadius = 30;
+            this.btnQLND_NND.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQLND_NND.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQLND_NND.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQLND_NND.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQLND_NND.FillColor = System.Drawing.Color.Sienna;
+            this.btnQLND_NND.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
+            this.btnQLND_NND.ForeColor = System.Drawing.Color.White;
+            this.btnQLND_NND.Location = new System.Drawing.Point(70, 491);
+            this.btnQLND_NND.Name = "btnQLND_NND";
+            this.btnQLND_NND.Size = new System.Drawing.Size(406, 77);
+            this.btnQLND_NND.TabIndex = 37;
+            this.btnQLND_NND.Text = "Quản lý người dùng nhóm người dùng";
+            this.btnQLND_NND.Click += new System.EventHandler(this.btnQLND_NND_Click);
             // 
-            // btnQLPQ
+            // btnQLNV
             // 
-            this.btnQLPQ.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnQLPQ.BorderRadius = 30;
-            this.btnQLPQ.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLPQ.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLPQ.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnQLPQ.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQLPQ.FillColor = System.Drawing.Color.Lime;
-            this.btnQLPQ.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
-            this.btnQLPQ.ForeColor = System.Drawing.Color.White;
-            this.btnQLPQ.Location = new System.Drawing.Point(70, 295);
-            this.btnQLPQ.Name = "btnQLPQ";
-            this.btnQLPQ.Size = new System.Drawing.Size(406, 77);
-            this.btnQLPQ.TabIndex = 33;
-            this.btnQLPQ.Text = "Quản lý phân quyền";
-            // 
-            // btnDMMH
-            // 
-            this.btnDMMH.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDMMH.BorderRadius = 30;
-            this.btnDMMH.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDMMH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDMMH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDMMH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDMMH.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDMMH.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
-            this.btnDMMH.ForeColor = System.Drawing.Color.White;
-            this.btnDMMH.Location = new System.Drawing.Point(70, 392);
-            this.btnDMMH.Name = "btnDMMH";
-            this.btnDMMH.Size = new System.Drawing.Size(406, 77);
-            this.btnDMMH.TabIndex = 34;
-            this.btnDMMH.Text = "Danh mục màn hình";
+            this.btnQLNV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnQLNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQLNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQLNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQLNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQLNV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnQLNV.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
+            this.btnQLNV.ForeColor = System.Drawing.Color.White;
+            this.btnQLNV.Location = new System.Drawing.Point(306, 22);
+            this.btnQLNV.Name = "btnQLNV";
+            this.btnQLNV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnQLNV.Size = new System.Drawing.Size(152, 141);
+            this.btnQLNV.TabIndex = 36;
+            this.btnQLNV.Text = "Quản lý nhân viên";
+            this.btnQLNV.Click += new System.EventHandler(this.btnQLNV_Click);
             // 
             // btnQLKH
             // 
@@ -282,39 +276,50 @@
             this.btnQLKH.TabIndex = 35;
             this.btnQLKH.Text = "Quản lý khách hàng";
             // 
-            // btnQLNV
+            // btnDMMH
             // 
-            this.btnQLNV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnQLNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnQLNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQLNV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnQLNV.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
-            this.btnQLNV.ForeColor = System.Drawing.Color.White;
-            this.btnQLNV.Location = new System.Drawing.Point(306, 22);
-            this.btnQLNV.Name = "btnQLNV";
-            this.btnQLNV.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnQLNV.Size = new System.Drawing.Size(152, 141);
-            this.btnQLNV.TabIndex = 36;
-            this.btnQLNV.Text = "Quản lý nhân viên";
+            this.btnDMMH.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDMMH.BorderRadius = 30;
+            this.btnDMMH.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDMMH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDMMH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDMMH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDMMH.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDMMH.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
+            this.btnDMMH.ForeColor = System.Drawing.Color.White;
+            this.btnDMMH.Location = new System.Drawing.Point(70, 392);
+            this.btnDMMH.Name = "btnDMMH";
+            this.btnDMMH.Size = new System.Drawing.Size(406, 77);
+            this.btnDMMH.TabIndex = 34;
+            this.btnDMMH.Text = "Danh mục màn hình";
+            this.btnDMMH.Click += new System.EventHandler(this.btnDMMH_Click);
             // 
-            // btnQLND_NND
+            // btnQLPQ
             // 
-            this.btnQLND_NND.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnQLND_NND.BorderRadius = 30;
-            this.btnQLND_NND.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLND_NND.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLND_NND.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnQLND_NND.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQLND_NND.FillColor = System.Drawing.Color.Sienna;
-            this.btnQLND_NND.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
-            this.btnQLND_NND.ForeColor = System.Drawing.Color.White;
-            this.btnQLND_NND.Location = new System.Drawing.Point(70, 491);
-            this.btnQLND_NND.Name = "btnQLND_NND";
-            this.btnQLND_NND.Size = new System.Drawing.Size(406, 77);
-            this.btnQLND_NND.TabIndex = 37;
-            this.btnQLND_NND.Text = "Quản lý người dùng nhóm người dùng";
+            this.btnQLPQ.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnQLPQ.BorderRadius = 30;
+            this.btnQLPQ.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQLPQ.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQLPQ.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQLPQ.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQLPQ.FillColor = System.Drawing.Color.Lime;
+            this.btnQLPQ.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
+            this.btnQLPQ.ForeColor = System.Drawing.Color.White;
+            this.btnQLPQ.Location = new System.Drawing.Point(70, 295);
+            this.btnQLPQ.Name = "btnQLPQ";
+            this.btnQLPQ.Size = new System.Drawing.Size(406, 77);
+            this.btnQLPQ.TabIndex = 33;
+            this.btnQLPQ.Text = "Quản lý phân quyền";
+            this.btnQLPQ.Click += new System.EventHandler(this.btnQLPQ_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 604);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1082, 134);
+            this.panel1.TabIndex = 28;
             // 
             // UC_QLDN
             // 

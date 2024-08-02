@@ -97,6 +97,7 @@
       <Column Name="Email" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="Char(100)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="HoatDong" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="NhanVien_HoaDon" Member="HoaDons" ThisKey="MaNV" OtherKey="MaNV" Type="HoaDon" />
       <Association Name="NhanVien_QL_NguoiDungNhomNguoiDung" Member="QL_NguoiDungNhomNguoiDungs" ThisKey="MaNV" OtherKey="MaNV" Type="QL_NguoiDungNhomNguoiDung" />
     </Type>

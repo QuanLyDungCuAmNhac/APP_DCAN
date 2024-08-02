@@ -28,15 +28,22 @@ namespace APP_QuanLiDungCuAmNhac.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (NhanVienBLL.Login(textBox1.Text,textBox2.Text) == true)
+            
+            if (NhanVienBLL.getTrangThai(textBox1.Text) == true && NhanVienBLL.Login(textBox1.Text,textBox2.Text) == true)
             {
-                using (FormMain fd = new FormMain(DN_NNDBLL.GetMaNND(textBox1.Text)))
+               
+                using (FormMain fd = new FormMain(DN_NNDBLL.GetMaNND(textBox1.Text),textBox1.Text))
                 {
                     fd.ShowDialog();
                 }
             }
             else
             {
+                if (NhanVienBLL.getTrangThai(textBox1.Text) == false && NhanVienBLL.Login(textBox1.Text, textBox2.Text) == true)
+                {
+                    MessageBox.Show("Tài khoản đã bị khóa");
+                    return;
+                }
                 MessageBox.Show("Ten dang nhap hoac mat khau khong dung");
                 return;
             } 

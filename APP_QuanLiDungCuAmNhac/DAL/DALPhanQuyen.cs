@@ -37,5 +37,25 @@ namespace DAL
 
                 return permission != null && permission.CoQuyen;  
         }
+
+        public void InsertPQ(QL_PhanQuyen pq)
+        {
+            var PQ = new QL_PhanQuyen
+            {
+                MaNhomNguoiDung = pq.MaNhomNguoiDung,
+                MaManHinh = pq.MaManHinh,
+                CoQuyen = pq.CoQuyen,
+            };
+            qldc.QL_PhanQuyens.InsertOnSubmit(PQ);
+            qldc.SubmitChanges();
+        }
+        public bool KTKC(string MaNhom,string MaMH)
+        {
+            var kt = qldc.QL_PhanQuyens.Where(l => l.MaNhomNguoiDung == MaNhom && l.MaManHinh == MaMH).Count();
+            if (kt != 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

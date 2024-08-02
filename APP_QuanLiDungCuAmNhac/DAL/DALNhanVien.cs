@@ -28,6 +28,14 @@ namespace DAL
             //return true;
         }
 
+        public bool getTrangThai(string UserName)
+        {
+            bool? trangthai = qldc.NhanViens.Where(t=>t.Username == UserName).Select(t=>t.HoatDong).FirstOrDefault();
+            if(trangthai == true)
+                return true;
+            return false;
+        }
+
         public void UpdateHoatDongNV (int id, bool HoatDong)
         {
             var NV = qldc.NhanViens.FirstOrDefault(l => l.MaNV == id);
@@ -38,6 +46,61 @@ namespace DAL
             }
             else
                 throw new Exception("NV không tồn tại.");
+        }
+
+        public string GetName(string UserName)
+        {
+            return qldc.NhanViens.Where(nv=>nv.Username == UserName).Select(nv => nv.TenNV).FirstOrDefault();
+        }
+
+        public int KTKC(int MaNV)
+        {
+            return qldc.NhanViens.Where(n => n.MaNV == MaNV).Count();
+        }
+
+        public void UpdateNV(NhanVien nv)
+        {
+            var NV = qldc.NhanViens.FirstOrDefault(l => l.MaNV == nv.MaNV);
+            if (NV != null)
+            {
+                NV.TenNV = nv.TenNV;
+                NV.SDT = nv.SDT;
+                NV.Email = nv.Email;
+                NV.Username = nv.Username;
+                NV.Password = nv.Password;
+                qldc.SubmitChanges();
+            }
+            else
+                throw new Exception("nhân viên không tồn tại.");
+        }
+
+        public void InsertNV(NhanVien nv)
+        {
+            NhanVien nhanVien = new NhanVien{  
+                MaNV = nv.MaNV,
+                TenNV = nv.TenNV,
+                SDT = nv.SDT,
+                Email = nv.Email,
+                Username = nv.Username,
+                Password = nv.Password,
+            };
+            qldc.NhanViens.InsertOnSubmit(nhanVien);
+            qldc.SubmitChanges();
+
+        }
+
+        public void XoaNV(int MaNV)
+        {
+            var NV = qldc.NhanViens.SingleOrDefault(l => l.MaNV == MaNV);
+            if (NV != null)
+            {
+                qldc.NhanViens.DeleteOnSubmit(NV);
+                qldc.SubmitChanges();
+            }
+            else
+            {
+                throw new Exception("nhân viên không tồn tại.");
+            }
         }
     }
 }

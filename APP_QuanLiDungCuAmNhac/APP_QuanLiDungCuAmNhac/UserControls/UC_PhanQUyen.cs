@@ -16,20 +16,40 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
     public partial class UC_PhanQUyen : UserControl
     {
         BLLPhanQuyen PhanQuyenBLL = new BLLPhanQuyen();
+        BLLManHinh ManHinhBLL = new BLLManHinh();
+        BLLNND NNDBLL = new BLLNND();
         public UC_PhanQUyen()
         {
             InitializeComponent();
+            
         }
+
+      
 
         private void DGVPQ_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        public void LoadManHinh()
+        {
+            var LoaiList = ManHinhBLL.LoadMH();
+            LoaiList.Insert(0, new DM_ManHinh { MaManHinh = "-1", TenManHinh = "" });
+            CBBManHinh.DataSource = LoaiList;
+            CBBManHinh.DisplayMember = "TenManHinh";
+            CBBManHinh.ValueMember = "MaManHinh";
+        }
+        public void LoadNND()
+        {
+            DGVNhom.DataSource = NNDBLL.LoadNND();
+            DGVNhom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void UC_PhanQUyen_Load(object sender, EventArgs e)
         {
             DGVPQ.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             LoadPQ();
+            LoadNND();
+            LoadManHinh();
         }
 
         public void LoadPQ()
@@ -89,6 +109,29 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             {
                 DGVPQ.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string MaNhom = DGVNhom.CurrentRow.Cells[0].Value.ToString();
+            string MaMH = CBBManHinh.SelectedValue.ToString();
+            if (CBBManHinh.SelectedValue.ToString() == "-1")
+            {
+                MessageBox.Show("Vui lòng chọn màn hình");
+                return;
+            }
+            if(PhanQuyenBLL.KTKC(MaNhom, MaMH))
+            {
+                MessageBox.Show("Đã tồn tại nhóm quyền này");
+                return;
+            }    
+            QL_PhanQuyen pq = new QL_PhanQuyen();
+            pq.MaNhomNguoiDung = MaNhom;
+            pq.MaManHinh = MaMH;    
+            pq.CoQuyen = false;
+            PhanQuyenBLL.InsertPQ(pq);
+            LoadPQ();
+            MessageBox.Show("Thêm thành công");
         }
     }
 }

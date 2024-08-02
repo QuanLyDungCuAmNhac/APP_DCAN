@@ -75,7 +75,7 @@ namespace DTO
     #endregion
 		
 		public QL_DCANDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QL_DCANConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QL_DCANConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1169,7 +1169,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="Char(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(500)")]
 		public string Password
 		{
 			get
@@ -2025,7 +2025,7 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int MaNV
 		{
 			get

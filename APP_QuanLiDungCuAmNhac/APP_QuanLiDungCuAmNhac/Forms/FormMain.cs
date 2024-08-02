@@ -16,22 +16,30 @@ namespace APP_QuanLiDungCuAmNhac.Forms
 {
     public partial class FormMain : Form
     {
+        string getUser = "";
         BLLPhanQuyen PhanQuyenBLL = new BLLPhanQuyen();
+        BLLNND NNDBLL = new BLLNND();
+        BLLND_NDD DN_NNDBLL = new BLLND_NDD();
+        BLLNhanVien NhanVienBLL = new BLLNhanVien();
         public string LoggedInMaNhomNguoiDung { get; set; }
         int PanelWidth;
         bool isCollapsed;
-        public FormMain(string UserName)
+        public FormMain(string MaNhom,string UserName)
         {
             InitializeComponent();
             timerTime.Start();
             PanelWidth = panelLeft.Width;
             isCollapsed = false;
-            label7.Text = UserName;
+            label5.Text = NhanVienBLL.GetName(UserName);
+            label7.Text = NNDBLL.getTenNhom(MaNhom);
+            getUser = MaNhom;
              UC_BanHang uch = new UC_BanHang();
             AddControlsToPanel(uch);
             this.Load += FormMain_Load;
            
         }
+
+       
 
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -46,7 +54,8 @@ namespace APP_QuanLiDungCuAmNhac.Forms
         private string LoginAndGetMaNhomNguoiDung()
         {
             // Thực hiện đăng nhập và trả về mã nhóm người dùng
-            return label7.Text.ToString(); // Ví dụ
+            //return label7.Text.ToString(); // Ví dụ
+            return getUser;
         }
 
         private void UpdateUIBasedOnPermissions()

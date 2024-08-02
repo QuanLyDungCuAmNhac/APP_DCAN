@@ -29,5 +29,14 @@ namespace BLL
         {
             return PhanQuyenDAL.CheckPermission(maNhomNguoiDung,maManHinh);
         }
+
+        public void InsertPQ(QL_PhanQuyen pq)
+        {
+            PhanQuyenDAL.InsertPQ(pq);
+        }
+        public bool KTKC(string MaNhom, string MaMH)
+        {
+            return PhanQuyenDAL.KTKC(MaNhom, MaMH);
+        }
     }
 }

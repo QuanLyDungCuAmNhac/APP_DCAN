@@ -45,6 +45,9 @@
     <Reference Include="GumroadLicensing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GumroadLicensing.1.0.3\lib\net40\GumroadLicensing.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.0.9.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.0.9\lib\net472\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
@@ -102,6 +105,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -130,6 +134,12 @@
     <Compile Include="My Control\frmThemSanPham.Designer.cs">
       <DependentUpon>frmThemSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="My Control\frmThemVaoKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Control\frmThemVaoKho.Designer.cs">
+      <DependentUpon>frmThemVaoKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="My Control\frmXacNhanThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +159,12 @@
     </Compile>
     <Compile Include="UserControls\Demo.Designer.cs">
       <DependentUpon>Demo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ThongKeDoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ThongKeDoanhThu.Designer.cs">
+      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_BanHang.cs">
       <SubType>UserControl</SubType>
@@ -252,6 +268,12 @@
     <Compile Include="UserControls\UC_SanPham.Designer.cs">
       <DependentUpon>UC_SanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_ThemVaoKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_ThemVaoKho.Designer.cs">
+      <DependentUpon>UC_ThemVaoKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_ThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,6 +295,9 @@
     <EmbeddedResource Include="My Control\frmThemSanPham.resx">
       <DependentUpon>frmThemSanPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Control\frmThemVaoKho.resx">
+      <DependentUpon>frmThemVaoKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Control\frmXacNhanThanhToan.resx">
       <DependentUpon>frmXacNhanThanhToan.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +315,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\Demo.resx">
       <DependentUpon>Demo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ThongKeDoanhThu.resx">
+      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_BanHang.resx">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
@@ -341,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_SanPham.resx">
       <DependentUpon>UC_SanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_ThemVaoKho.resx">
+      <DependentUpon>UC_ThemVaoKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_ThongKe.resx">
       <DependentUpon>UC_ThongKe.cs</DependentUpon>

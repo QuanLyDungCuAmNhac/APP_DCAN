@@ -54,5 +54,17 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
         {
 
         }
+
+        private void btnQLNV_Click(object sender, EventArgs e)
+        {
+            UC_NhanVien uc = new UC_NhanVien();
+            _mainForm.AddControlsToPanel(uc);
+        }
+
+        private void btnQLNND_Click(object sender, EventArgs e)
+        {
+            UC_NND uc = new UC_NND();
+            _mainForm.AddControlsToPanel(uc);
+        }
     }
 }

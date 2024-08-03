@@ -250,6 +250,7 @@
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(101, 37);
             this.guna2Button2.TabIndex = 3;
+            this.guna2Button2.Tag = "123";
             this.guna2Button2.Text = "Xóa";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 

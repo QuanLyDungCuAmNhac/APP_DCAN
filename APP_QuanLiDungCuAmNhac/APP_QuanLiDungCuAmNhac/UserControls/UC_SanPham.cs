@@ -98,7 +98,18 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 imageCell.Value = null; // Đặt hình ảnh mặc định nếu cần
             }
         }
-    
+
+        private void AddImageColumnToDataGridView()
+        {
+            DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+            imgColumn.Name = "HinhAnh";
+            imgColumn.HeaderText = "Hình Ảnh";
+            //  imgColumn.Width = 100; // Thiết lập chiều rộng cột lớn hơn, bạn có thể điều chỉnh giá trị này
+
+            imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Hoặc DataGridViewImageCellLayout.Stretch
+            dataGridViewSanPham.Columns.Add(imgColumn);
+        }
+
 
         private void btnThem_Click(object sender, EventArgs e)
         {

@@ -22,6 +22,8 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
         BLLThuongHieu bll_th = new BLLThuongHieu();
         private Cloudinary cloudinary;
         private string selectedImageFileName;
+
+        
         public frmThemSanPham()
         {
             InitializeComponent();
@@ -79,6 +81,16 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             bool uploadSuccess = await UploadImageToCloudinaryAsync(txt_Url.Text);
 
             if (uploadSuccess)
+
+            bll_sp.AddSanPham(tenSP, donGia, soLuong, hinhAnhUrl, moTa, maLoai, maThuongHieu, trangThai);
+
+         //  LoadProducts(); // Reload data grid view
+        }
+        private async Task<string> UploadImageToCloudinaryAsync()
+        {
+            // Assuming you have a method to get the image file
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
             {
                 // Lưu tên hình ảnh vào database
                 bll_sp.AddSanPham(tenSP, donGia, soLuong, selectedImageFileName, moTa, maLoai, maThuongHieu, trangThai);
@@ -105,6 +117,8 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
                 var uploadResult = await cloudinary.UploadAsync(uploadParams);
 
                 return uploadResult.StatusCode == System.Net.HttpStatusCode.OK;
+
+                return uploadResult.SecureUrl.ToString(); // Return the URL of the uploaded image
             }
             catch (Exception ex)
             {

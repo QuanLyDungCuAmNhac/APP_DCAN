@@ -32,5 +32,26 @@ namespace DAL
                 return false;
             }
         }
+
+        public List<DoanhThuTheoNgay> GetDoanhThuTheoThang(int month, int year)
+        {
+            var query = qldcan.HoaDons
+            .Where(hd => hd.NgayDat.HasValue && hd.NgayDat.Value.Month == month && hd.NgayDat.Value.Year == year)
+            .GroupBy(hd => hd.NgayDat.Value.Day)
+            .Select(g => new DoanhThuTheoNgay
+            {
+                Ngay = g.Key,
+                DoanhThu = g.Sum(hd => hd.TongTien ?? 0)
+            })
+            .ToList();
+
+            return query;
+        }
+
+        public class DoanhThuTheoNgay
+        {
+            public int Ngay { get; set; }
+            public decimal DoanhThu { get; set; }
+        }
     }
 }

@@ -82,8 +82,20 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 txtMaKM.Text = dgvKM.CurrentRow.Cells[0].Value.ToString();
                 txtTenKM.Text = dgvKM.CurrentRow.Cells[1].Value.ToString();
                 txtGiamGia.Text = dgvKM.CurrentRow.Cells[2].Value.ToString();
-                txtNgayBD.Text = dgvKM.CurrentRow.Cells[3].Value.ToString();
-                txtNgayKT.Text = dgvKM.CurrentRow.Cells[4].Value.ToString();
+
+                string NgayBD = dgvKM.CurrentRow.Cells[3].Value.ToString();
+                DateTime selectedDate;
+                if (DateTime.TryParse(NgayBD, out selectedDate))
+                {
+                    DTBatDau.Value = selectedDate;
+                }
+
+                string NgayKT = dgvKM.CurrentRow.Cells[4].Value.ToString();
+                DateTime selectedDate1;
+                if (DateTime.TryParse(NgayKT, out selectedDate1))
+                {
+                    DTKetThuc.Value = selectedDate1;
+                }
 
                 // Lấy giá trị từ ô và gán cho ComboBox
                 string maSP = dgvKM.CurrentRow.Cells[5].Value.ToString();
@@ -131,28 +143,53 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 MessageBox.Show("Không được để trống giảm giá");
                 return;
             }
-            if (string.IsNullOrEmpty(txtNgayBD.Text))
+            if (DTBatDau.Value > DTKetThuc.Value)
             {
-                MessageBox.Show("Không được để trông ngày bắt đầu");
+                MessageBox.Show("Vui lòng nhập ngày bắt đầu nhỏ hơn ngày kết thúc");
                 return;
             }
-            if (string.IsNullOrEmpty(txtNgayKT.Text))
-            {
-                MessageBox.Show("Không được để trông ngày kết thúc");
-                return;
-            }
-         
-                KhuyenMai KM = new KhuyenMai();
+
+            KhuyenMai KM = new KhuyenMai();
                 KM.MaKM = int.Parse(txtMaKM.Text);
                 KM.TenKM = txtTenKM.Text;
                 KM.GiamGia = float.Parse(txtGiamGia.Text);
-                KM.NgayBD = DateTime.Now;
-                KM.NgayKT = DateTime.Now;
+                KM.NgayBD = DTBatDau.Value.Date;
+                KM.NgayKT = DTKetThuc.Value.Date;
                 KM.MaSP = int.Parse(cbbMaSP.SelectedValue.ToString());
                 KhuyenMaiBLL.UpdateKM(KM);
                 MessageBox.Show("Update thành công");
                 LoadCBBKM();
                 LoadDGVKM();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {        
+            if (string.IsNullOrEmpty(txtTenKM.Text))
+            {
+                MessageBox.Show("Không được để trống tên khuyến mãi");
+                return;
+            }
+            if (DTBatDau.Value > DTKetThuc.Value)
+            {
+                MessageBox.Show("Vui lòng nhập ngày bắt đầu nhỏ hơn ngày kết thúc");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtGiamGia.Text))
+            {
+                MessageBox.Show("Không được để trống giảm giá");
+                return;
+            }
+
+            KhuyenMai KM = new KhuyenMai();       
+            KM.TenKM = txtTenKM.Text;
+            KM.GiamGia = float.Parse(txtGiamGia.Text);
+            KM.NgayBD = DTBatDau.Value.Date;
+            KM.NgayKT = DTKetThuc.Value.Date;
+            KM.MaSP = int.Parse(cbbMaSP.SelectedValue.ToString());
+            KhuyenMaiBLL.InsertKM(KM);
+            MessageBox.Show("Thêm thành công");
+            LoadCBBKM();
+            LoadDGVKM();
         }
     }
 }

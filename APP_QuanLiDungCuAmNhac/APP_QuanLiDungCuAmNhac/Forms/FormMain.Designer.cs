@@ -68,7 +68,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(345, 6);
+            this.label7.Location = new System.Drawing.Point(443, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 23);
             this.label7.TabIndex = 0;
@@ -79,11 +79,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(280, 6);
+            this.label6.Location = new System.Drawing.Point(346, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 23);
+            this.label6.Size = new System.Drawing.Size(93, 23);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Role:";
+            this.label6.Text = "Chức vụ:";
             // 
             // labelTime
             // 
@@ -102,7 +102,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(143, 6);
+            this.label5.Location = new System.Drawing.Point(128, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 23);
             this.label5.TabIndex = 0;
@@ -215,6 +215,7 @@
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Size = new System.Drawing.Size(215, 52);
             this.btnBanHang.TabIndex = 2;
+            this.btnBanHang.Tag = "MH001";
             this.btnBanHang.Text = "     Bán hàng";
             this.btnBanHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBanHang.UseVisualStyleBackColor = false;
@@ -279,9 +280,11 @@
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(215, 57);
             this.btnThongKe.TabIndex = 8;
+            this.btnThongKe.Tag = "MH005";
             this.btnThongKe.Text = "     Thống kê";
             this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThongKe.UseVisualStyleBackColor = false;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click_1);
             // 
             // btn_QLKho
             // 
@@ -297,6 +300,7 @@
             this.btn_QLKho.Name = "btn_QLKho";
             this.btn_QLKho.Size = new System.Drawing.Size(215, 57);
             this.btn_QLKho.TabIndex = 7;
+            this.btn_QLKho.Tag = "MH004";
             this.btn_QLKho.Text = "     QL_Kho";
             this.btn_QLKho.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_QLKho.UseVisualStyleBackColor = false;
@@ -316,6 +320,7 @@
             this.btnDQDN.Name = "btnDQDN";
             this.btnDQDN.Size = new System.Drawing.Size(215, 57);
             this.btnDQDN.TabIndex = 6;
+            this.btnDQDN.Tag = "MH003";
             this.btnDQDN.Text = "     QL_Đăng Nhập";
             this.btnDQDN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDQDN.UseVisualStyleBackColor = false;
@@ -335,6 +340,7 @@
             this.btnQLSP.Name = "btnQLSP";
             this.btnQLSP.Size = new System.Drawing.Size(215, 57);
             this.btnQLSP.TabIndex = 4;
+            this.btnQLSP.Tag = "MH002";
             this.btnQLSP.Text = "     QL_Sản phẩm";
             this.btnQLSP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnQLSP.UseVisualStyleBackColor = false;

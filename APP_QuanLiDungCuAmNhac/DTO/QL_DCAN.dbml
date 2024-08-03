@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_DCAN1" Class="QL_DCANDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-M3K4EN6H\SQLEXPRESS;Initial Catalog=QL_DCAN1;User ID=vy" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QL_DCAN1ConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_DCAN" Class="QL_DCANDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-TQQS6PK;Initial Catalog=QL_DCAN;Persist Security Info=True;User ID=sa;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QL_DCANConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChiTietHoaDon" Member="ChiTietHoaDons">
     <Type Name="ChiTietHoaDon">
       <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -47,7 +47,7 @@
       <Column Name="SDT" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="Char(100)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Association Name="KhachHang_HoaDon" Member="HoaDons" ThisKey="MaKH" OtherKey="MaKH" Type="HoaDon" />
     </Type>
   </Table>
@@ -65,7 +65,7 @@
   </Table>
   <Table Name="dbo.KhuyenMai" Member="KhuyenMais">
     <Type Name="KhuyenMai">
-      <Column Name="MaKM" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenKM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="GiamGia" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="NgayBD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
@@ -91,12 +91,13 @@
   </Table>
   <Table Name="dbo.NhanVien" Member="NhanViens">
     <Type Name="NhanVien">
-      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="Char(11)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="Char(100)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="HoatDong" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="NhanVien_HoaDon" Member="HoaDons" ThisKey="MaNV" OtherKey="MaNV" Type="HoaDon" />
       <Association Name="NhanVien_QL_NguoiDungNhomNguoiDung" Member="QL_NguoiDungNhomNguoiDungs" ThisKey="MaNV" OtherKey="MaNV" Type="QL_NguoiDungNhomNguoiDung" />
     </Type>

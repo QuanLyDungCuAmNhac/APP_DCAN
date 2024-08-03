@@ -22,7 +22,7 @@ namespace DTO
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_DCAN1")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QL_DCAN")]
 	public partial class QL_DCANDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -75,7 +75,7 @@ namespace DTO
     #endregion
 		
 		public QL_DCANDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QL_DCAN1ConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QL_DCANConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1169,7 +1169,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="Char(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(500)")]
 		public string Password
 		{
 			get
@@ -1543,7 +1543,7 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKM", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKM", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int MaKM
 		{
 			get
@@ -1992,6 +1992,8 @@ namespace DTO
 		
 		private string _Password;
 		
+		private System.Nullable<bool> _HoatDong;
+		
 		private EntitySet<HoaDon> _HoaDons;
 		
 		private EntitySet<QL_NguoiDungNhomNguoiDung> _QL_NguoiDungNhomNguoiDungs;
@@ -2012,6 +2014,8 @@ namespace DTO
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
+    partial void OnHoatDongChanging(System.Nullable<bool> value);
+    partial void OnHoatDongChanged();
     #endregion
 		
 		public NhanVien()
@@ -2137,6 +2141,26 @@ namespace DTO
 					this._Password = value;
 					this.SendPropertyChanged("Password");
 					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoatDong", DbType="Bit")]
+		public System.Nullable<bool> HoatDong
+		{
+			get
+			{
+				return this._HoatDong;
+			}
+			set
+			{
+				if ((this._HoatDong != value))
+				{
+					this.OnHoatDongChanging(value);
+					this.SendPropertyChanging();
+					this._HoatDong = value;
+					this.SendPropertyChanged("HoatDong");
+					this.OnHoatDongChanged();
 				}
 			}
 		}

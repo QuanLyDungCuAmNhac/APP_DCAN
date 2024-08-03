@@ -43,6 +43,9 @@
     <Reference Include="GumroadLicensing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GumroadLicensing.1.0.3\lib\net40\GumroadLicensing.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.0.9.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.0.9\lib\net472\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
@@ -100,6 +103,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -108,10 +112,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLHoaDon.cs" />
+    <Compile Include="BLLKho.cs" />
     <Compile Include="BLLKhuyenMai.cs" />
     <Compile Include="BLLLoai.cs" />
+    <Compile Include="BLLManHinh.cs" />
+    <Compile Include="BLLND_NDD.cs" />
+    <Compile Include="BLLNhaCungCap.cs" />
     <Compile Include="BLLNhanVien.cs" />
+    <Compile Include="BLLNND.cs" />
+    <Compile Include="BLLPhanQuyen.cs" />
     <Compile Include="BLLSanPham.cs" />
+    <Compile Include="BLLThongKe.cs" />
     <Compile Include="BLLThuongHieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

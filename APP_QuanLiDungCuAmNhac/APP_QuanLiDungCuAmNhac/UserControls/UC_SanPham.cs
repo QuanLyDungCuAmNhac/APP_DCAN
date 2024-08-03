@@ -18,10 +18,12 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
     {
         private Cloudinary cloudinary;
         BLLSanPham bll_sp = new BLLSanPham();
+        private int selectedProductId;
         public UC_SanPham()
         {
             InitializeCloudinary();
             InitializeComponent();
+            
         }
 
         private void txtTenLoai_TextChanged(object sender, EventArgs e)
@@ -29,31 +31,23 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
         }
 
-        private void UC_SanPham_Load(object sender, EventArgs e)
+        private async void UC_SanPham_Load(object sender, EventArgs e)
         {
             dataGridViewSanPham.Font = new Font("Segoe GUI", 12, FontStyle.Regular);
             dataGridViewSanPham.AutoGenerateColumns = false;
-            //  dataGridViewSanPham.DataSource = bll_sp.LoadSP();
-            LoadSanPhamAsync();
+          
+            await LoadSanPhamAsync();
         }
         public async Task LoadSanPhamAsync()
         {
-            AddImageColumnToDataGridView();
-
-            // Lấy danh sách sản phẩm từ BLL
-            var products = bll_sp.LoadSP();
-
-            // Xóa các hàng hiện tại (nếu có)
+            var products = bll_sp.LoadSP(); // Kiểm tra để chắc chắn rằng phương thức này trả về dữ liệu hợp lệ
             dataGridViewSanPham.Rows.Clear();
 
-            // Lặp qua danh sách sản phẩm và thêm vào DataGridView
             foreach (var product in products)
             {
-                // Tạo một hàng mới
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dataGridViewSanPham);
 
-                // Gán giá trị cho các ô
                 row.Cells[0].Value = product.MaSP;
                 row.Cells[1].Value = product.TenSP;
                 row.Cells[2].Value = product.DonGia;
@@ -62,12 +56,14 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 row.Cells[5].Value = product.MaLoai;
                 row.Cells[6].Value = product.MaTH;
 
-
                 var imageCell = (DataGridViewImageCell)row.Cells[7];
-                string imageUrl = cloudinary.Api.UrlImgUp.BuildUrl(product.HinhAnh.Trim());
-                await LoadImageAsync(imageUrl, imageCell);
+                if (product.HinhAnh != null)
+                {
+                    string imageUrl = cloudinary.Api.UrlImgUp.BuildUrl(product.HinhAnh.Trim());
+                    await LoadImageAsync(imageUrl, imageCell);
+                }
+
                 row.Height = 100;
-                // Thêm hàng vào DataGridView
                 dataGridViewSanPham.Rows.Add(row);
             }
         }
@@ -102,16 +98,7 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 imageCell.Value = null; // Đặt hình ảnh mặc định nếu cần
             }
         }
-        private void AddImageColumnToDataGridView()
-        {
-            DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-            imgColumn.Name = "HinhAnh";
-            imgColumn.HeaderText = "Hình Ảnh";
-          //  imgColumn.Width = 100; // Thiết lập chiều rộng cột lớn hơn, bạn có thể điều chỉnh giá trị này
-
-            imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Hoặc DataGridViewImageCellLayout.Stretch
-            dataGridViewSanPham.Columns.Add(imgColumn);
-        }
+    
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -120,5 +107,78 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             // Hiển thị form như một hộp thoại
             form.ShowDialog();
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (selectedProductId > 0)
+            {
+                frmSuaSanPham form = new frmSuaSanPham(selectedProductId);
+                form.FormClosed += Form_FormClosed;
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to edit.");
+            }
+        }
+
+        private async void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            await LoadSanPhamAsync();
+        }
+
+        private void dataGridViewSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridViewSanPham.Rows.Count)
+            {
+                DataGridViewRow row = dataGridViewSanPham.Rows[e.RowIndex];
+                selectedProductId = (int)row.Cells[0].Value; // Lấy ID sản phẩm từ cột đầu tiên
+            }
+        }
+        private async void FrmSuaSanPham_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+           await LoadSanPhamAsync();
+        }
+
+        private async void btnLoad_Click(object sender, EventArgs e)
+        {
+            await LoadSanPhamAsync();
+        }
+
+        private async void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSanPham.SelectedRows.Count > 0)
+            {
+                // Lấy mã sản phẩm từ hàng được chọn
+                int selectedProductId = (int)dataGridViewSanPham.SelectedRows[0].Cells[0].Value;
+
+                // Xác nhận việc xóa
+                var result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này không?", "Xóa sản phẩm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Xóa sản phẩm khỏi cơ sở dữ liệu
+                        bll_sp.DeleteSanPham(selectedProductId);
+
+                        // Cập nhật DataGridView
+                        await LoadSanPhamAsync();
+
+                        MessageBox.Show("Sản phẩm đã được xóa thành công!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm để xóa.");
+            }
+        }
+
     }
 }

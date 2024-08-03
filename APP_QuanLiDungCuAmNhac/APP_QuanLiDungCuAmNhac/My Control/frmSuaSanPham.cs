@@ -12,21 +12,27 @@ using System.Windows.Forms;
 using DTO;
 using BLL;
 using System.IO;
+using APP_QuanLiDungCuAmNhac.UserControls;
 
 namespace APP_QuanLiDungCuAmNhac.My_Control
 {
-    public partial class frmThemSanPham : Form
+    public partial class frmSuaSanPham : Form
     {
         BLLSanPham bll_sp = new BLLSanPham();
         BLLLoai bll_loai = new BLLLoai();
         BLLThuongHieu bll_th = new BLLThuongHieu();
         private Cloudinary cloudinary;
-        private string selectedImageFileName;
-        public frmThemSanPham()
+        private int productId;
+        private string currentImageFileName;
+    
+        public frmSuaSanPham(int productId)
         {
             InitializeComponent();
+            this.productId = productId;
             InitializeCloudinary();
+            //LoadProductDetails();
         }
+
         private void InitializeCloudinary()
         {
             var account = new Account(
@@ -35,20 +41,44 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
                 "KVCmXwtnx9zLnRet4SzN_Lee9xY");
             cloudinary = new Cloudinary(account);
         }
+
+        private void LoadProductDetails()
+        {
+            var product = bll_sp.GetSanPhamById(productId);
+            if (product != null)
+            {
+               // txt_MaSP.Text = product.MaSP.ToString();
+                txt_TenSP.Text = product.TenSP;
+                txt_DonGia.Text = product.DonGia.ToString();
+                txt_SoLuong.Text = product.SoLuong.ToString();
+                txt_MoTa.Text = product.MoTa;
+                cbo_MaLoai.SelectedValue = product.MaLoai;
+                cbo_MaTH.SelectedValue = product.MaTH;
+                txt_TrangThai.Text = product.TrangThai.ToString();
+                currentImageFileName = product.HinhAnh;
+                // Load current image from Cloudinary
+
+                var imageUrl = cloudinary.Api.UrlImgUp.BuildUrl(product.HinhAnh.Trim());
+                pictureBox_HinhAnh.ImageLocation = imageUrl;
+            }
+        }
+
         public void LoadLoai()
         {
             cbo_MaLoai.DataSource = bll_loai.LoadLoai();
             cbo_MaLoai.DisplayMember = "TenLoai";
             cbo_MaLoai.ValueMember = "MaLoai";
-
+            cbo_MaLoai.SelectedIndex = -1;
         }
+
         public void LoadThuongHieu()
         {
             cbo_MaTH.DataSource = bll_th.LoadTH();
             cbo_MaTH.DisplayMember = "TenTH";
             cbo_MaTH.ValueMember = "MaTH";
-
+            cbo_MaTH.SelectedIndex = -1;
         }
+
         private void btn_ChonHinh_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -59,14 +89,13 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 pictureBox_HinhAnh.Image = Image.FromFile(openFileDialog.FileName);
-                selectedImageFileName = Path.GetFileName(openFileDialog.FileName); // Lưu tên file ảnh
+                currentImageFileName = Path.GetFileName(openFileDialog.FileName); // Lưu tên file ảnh
                 txt_Url.Text = openFileDialog.FileName;
             }
         }
 
         private async void btn_Luu_Click(object sender, EventArgs e)
         {
-            //  string maSP = txt_MaSP.Text;
             string tenSP = txt_TenSP.Text;
             decimal donGia = decimal.Parse(txt_DonGia.Text);
             int soLuong = int.Parse(txt_SoLuong.Text);
@@ -75,23 +104,28 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             int maThuongHieu = int.Parse(cbo_MaTH.SelectedValue.ToString());
             int trangThai = int.Parse(txt_TrangThai.Text);
 
-            // Upload image to Cloudinary
-            bool uploadSuccess = await UploadImageToCloudinaryAsync(txt_Url.Text);
-
-            if (uploadSuccess)
+            // Upload image to Cloudinary if a new image is selected
+            if (!string.IsNullOrEmpty(txt_Url.Text))
             {
-                // Lưu tên hình ảnh vào database
-                bll_sp.AddSanPham(tenSP, donGia, soLuong, selectedImageFileName, moTa, maLoai, maThuongHieu, trangThai);
-                MessageBox.Show("Product added successfully!");
-                this.Close(); // Close the form after saving
-            }
-            else
-            {
-                MessageBox.Show("Failed to upload image.");
+                bool uploadSuccess = await UploadImageToCloudinaryAsync(txt_Url.Text);
+                if (uploadSuccess)
+                {
+                    currentImageFileName = Path.GetFileName(txt_Url.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to upload image.");
+                    return;
+                }
             }
 
-            //   LoadProducts(); // Reload data grid view
+            // Update product details in database
+            bll_sp.UpdateSanPham(productId, tenSP, donGia, soLuong, currentImageFileName, moTa, maLoai, maThuongHieu, trangThai);
+            MessageBox.Show("Product updated successfully!");
+          
+            this.Close(); // Close the form after saving
         }
+
         private async Task<bool> UploadImageToCloudinaryAsync(string imageFilePath)
         {
             try
@@ -113,25 +147,15 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmThemSanPham_Load(object sender, EventArgs e)
+        private void frmSuaSanPham_Load(object sender, EventArgs e)
         {
             LoadLoai();
             LoadThuongHieu();
+            LoadProductDetails();
         }
 
         private void txt_SoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
@@ -140,12 +164,15 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
 
         private void txt_DonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
         }
+
+        private void frmSuaSanPham_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
     }
 }
-

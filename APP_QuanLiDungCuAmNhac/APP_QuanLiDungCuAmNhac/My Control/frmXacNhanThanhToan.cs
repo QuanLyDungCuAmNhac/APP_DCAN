@@ -88,6 +88,11 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
                 }
 
                 MessageBox.Show("Thanh toán thành công!");
+                var result = MessageBox.Show("Thanh toán thành công! Bạn có muốn in hóa đơn không?", "Thông Báo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    PrintInvoice(maHD); // Method to print the invoice
+                }
                 OnSaveSuccess?.Invoke();
                 this.Close(); // Đóng form sau khi thanh toán thành công
             }
@@ -96,6 +101,49 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
                 MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
             }
         }
+        private void PrintInvoice(int maHD)
+        {
+            try
+            {
+                // Lấy danh sách chi tiết hóa đơn
+                List<HD> invoiceDetails = new List<HD>();
+                foreach (DataGridViewRow row in HoaDonDataGridView.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        invoiceDetails.Add(new HD
+                        {
+                            TenSP = row.Cells["TenSP"].Value.ToString(),
+                            DonGia = Convert.ToDecimal(row.Cells["DonGia"].Value),
+                            SoLuong = Convert.ToInt32(row.Cells["SoLuong"].Value),
+                            TongTien = Convert.ToDecimal(row.Cells["TongTien"].Value)
+                        });
+                    }
+                }
+
+                // Tạo báo cáo và thiết lập nguồn dữ liệu
+                CrystalReport1 rpt = new CrystalReport1(); // Thay thế bằng tên báo cáo của bạn
+                rpt.SetDataSource(invoiceDetails);
+
+                // Thiết lập các tham số nếu cần
+                rpt.SetParameterValue("MaHD", maHD);
+                rpt.SetParameterValue("NgayDat", dateTimePicker1.Value);
+                rpt.SetParameterValue("HinhThucThanhToan", textBox3.Text);
+                rpt.SetParameterValue("TongTien", decimal.Parse(TongTienTextBox.Text.Replace(" đ", "").Replace(".", ""), NumberStyles.Currency, new CultureInfo("vi-VN")));
+
+                // Hiển thị báo cáo
+                frmInHD reportViewer = new frmInHD(); // Form chứa CrystalReportViewer
+                reportViewer.crystalReportViewer1.ReportSource = rpt;
+                reportViewer.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra khi in hóa đơn: " + ex.Message);
+            }
+        }
+
+
+
         private int GetMaSP(string tenSP)
         {
             // Implement this method to return the product ID based on the product name

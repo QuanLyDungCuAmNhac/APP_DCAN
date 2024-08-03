@@ -16,7 +16,28 @@ namespace BLL
         {
 
         }
+        public SanPham GetSanPhamById(int maSP)
+        {
+            return SanPhamDAL.GetSanPhamById(maSP);
+        }
+      
+        public void UpdateSanPham(int maSP, string tenSP, decimal donGia, int soLuong, string hinhAnh, string moTa, int maLoai, int maThuongHieu, int trangThai)
+        {
+            SanPham sanPham = SanPhamDAL.GetSanPhamById(maSP);
+            if (sanPham != null)
+            {
+                sanPham.TenSP = tenSP;
+                sanPham.DonGia = donGia;
+                sanPham.SoLuong = soLuong;
+                sanPham.HinhAnh = hinhAnh;
+                sanPham.MoTa = moTa;
+                sanPham.MaLoai = maLoai;
+                sanPham.MaTH = maThuongHieu;
+                sanPham.TrangThai = trangThai;
 
+                SanPhamDAL.UpdateSanPham(sanPham);
+            }
+        }
         public List<SanPham> LoadSP()
         {
             return SanPhamDAL.LoadSP();
@@ -41,6 +62,10 @@ namespace BLL
             };
 
             SanPhamDAL.AddSanPham(product);
+        }
+        public void DeleteSanPham(int maSP)
+        {
+            SanPhamDAL.DeleteSanPham(maSP);
         }
     }
 }

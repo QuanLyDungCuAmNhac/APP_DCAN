@@ -132,16 +132,21 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
             foreach (var product in products)
             {
-                var imageUrl = cloudinary.Api.UrlImgUp.BuildUrl(product.HinhAnh.Trim());
-
-                var sanPhamControl = new My_Control.SanPham
+                if (product.HinhAnh != null)
                 {
-                    TenSP = product.TenSP,
-                    Price = product.DonGia.ToString(),
-                    ImageUrl = imageUrl,
-                };
-                sanPhamControl.Click += (s, e) => OnProductClick(product);
-                flowLayoutPanel1.Controls.Add(sanPhamControl);
+                    var imageUrl = cloudinary.Api.UrlImgUp.BuildUrl(product.HinhAnh.Trim());
+                    // Sử dụng `imageUrl` trong logic của bạn
+
+
+                    var sanPhamControl = new My_Control.SanPham
+                    {
+                        TenSP = product.TenSP,
+                        Price = product.DonGia.ToString(),
+                        ImageUrl = imageUrl,
+                    };
+                    sanPhamControl.Click += (s, e) => OnProductClick(product);
+                    flowLayoutPanel1.Controls.Add(sanPhamControl);
+                }
             }
         }
         private void UpdateTongTien()

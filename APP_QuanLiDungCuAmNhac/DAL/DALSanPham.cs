@@ -15,7 +15,29 @@ namespace DAL
         {
 
         }
+        public SanPham GetSanPhamById(int maSP)
+        {
+            return qldc.SanPhams.SingleOrDefault(sp => sp.MaSP == maSP);
+        }
+        public void UpdateSanPham(SanPham updatedSanPham)
+        {
+            var existingSanPham = qldc.SanPhams.SingleOrDefault(sp => sp.MaSP == updatedSanPham.MaSP);
+            if (existingSanPham != null)
+            {
+                // Update fields
+                existingSanPham.TenSP = updatedSanPham.TenSP;
+                existingSanPham.DonGia = updatedSanPham.DonGia;
+                existingSanPham.SoLuong = updatedSanPham.SoLuong;
+                existingSanPham.HinhAnh = updatedSanPham.HinhAnh;
+                existingSanPham.MoTa = updatedSanPham.MoTa;
+                existingSanPham.MaLoai = updatedSanPham.MaLoai;
+                existingSanPham.MaTH = updatedSanPham.MaTH;
+                existingSanPham.TrangThai = updatedSanPham.TrangThai;
 
+                // Submit changes to the database
+                qldc.SubmitChanges();
+            }
+        }
         public List<SanPham> LoadSP()
         {
             return qldc.SanPhams.Select(nv => nv).ToList<SanPham>();
@@ -28,6 +50,15 @@ namespace DAL
         {
             qldc.SanPhams.InsertOnSubmit(sanPham);
             qldc.SubmitChanges();
+        }
+        public void DeleteSanPham(int maSP)
+        {
+            var sanPham = qldc.SanPhams.SingleOrDefault(sp => sp.MaSP == maSP);
+            if (sanPham != null)
+            {
+                qldc.SanPhams.DeleteOnSubmit(sanPham);
+                qldc.SubmitChanges();
+            }
         }
     }
 }

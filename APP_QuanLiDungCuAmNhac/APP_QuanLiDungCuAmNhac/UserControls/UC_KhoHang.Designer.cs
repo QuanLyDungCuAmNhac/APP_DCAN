@@ -38,15 +38,15 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.DTNgayNhap = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtGiaNhap = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtSL = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cbbSP = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnSua = new Guna.UI2.WinForms.Guna2Button();
             this.txtMaKho = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.cbbNCC = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.DTNgayNhap = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cbbSP = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVKho)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -179,21 +179,6 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1082, 151);
             this.guna2Panel2.TabIndex = 0;
             // 
-            // DTNgayNhap
-            // 
-            this.DTNgayNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DTNgayNhap.Checked = true;
-            this.DTNgayNhap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.DTNgayNhap.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.DTNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DTNgayNhap.Location = new System.Drawing.Point(304, 87);
-            this.DTNgayNhap.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DTNgayNhap.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DTNgayNhap.Name = "DTNgayNhap";
-            this.DTNgayNhap.Size = new System.Drawing.Size(225, 38);
-            this.DTNgayNhap.TabIndex = 12;
-            this.DTNgayNhap.Value = new System.DateTime(2024, 7, 31, 14, 23, 29, 337);
-            // 
             // txtGiaNhap
             // 
             this.txtGiaNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -235,23 +220,6 @@
             this.txtSL.SelectedText = "";
             this.txtSL.Size = new System.Drawing.Size(221, 40);
             this.txtSL.TabIndex = 9;
-            // 
-            // cbbSP
-            // 
-            this.cbbSP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbbSP.BackColor = System.Drawing.Color.Transparent;
-            this.cbbSP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.cbbSP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbSP.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbbSP.ForeColor = System.Drawing.Color.DarkGray;
-            this.cbbSP.ItemHeight = 30;
-            this.cbbSP.Location = new System.Drawing.Point(565, 23);
-            this.cbbSP.Name = "cbbSP";
-            this.cbbSP.Size = new System.Drawing.Size(221, 36);
-            this.cbbSP.TabIndex = 8;
             // 
             // btnSua
             // 
@@ -312,6 +280,23 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // cbbNCC
+            // 
+            this.cbbNCC.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbbNCC.BackColor = System.Drawing.Color.Transparent;
+            this.cbbNCC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.cbbNCC.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbNCC.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbNCC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbbNCC.ForeColor = System.Drawing.Color.Silver;
+            this.cbbNCC.ItemHeight = 30;
+            this.cbbNCC.Location = new System.Drawing.Point(309, 23);
+            this.cbbNCC.Name = "cbbNCC";
+            this.cbbNCC.Size = new System.Drawing.Size(221, 36);
+            this.cbbNCC.TabIndex = 2;
+            // 
             // guna2Button2
             // 
             this.guna2Button2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -330,22 +315,37 @@
             this.guna2Button2.Text = "Xóa";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
-            // cbbNCC
+            // DTNgayNhap
             // 
-            this.cbbNCC.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbbNCC.BackColor = System.Drawing.Color.Transparent;
-            this.cbbNCC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.cbbNCC.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNCC.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbNCC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbbNCC.ForeColor = System.Drawing.Color.Silver;
-            this.cbbNCC.ItemHeight = 30;
-            this.cbbNCC.Location = new System.Drawing.Point(309, 23);
-            this.cbbNCC.Name = "cbbNCC";
-            this.cbbNCC.Size = new System.Drawing.Size(221, 36);
-            this.cbbNCC.TabIndex = 2;
+            this.DTNgayNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DTNgayNhap.Checked = true;
+            this.DTNgayNhap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.DTNgayNhap.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DTNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DTNgayNhap.Location = new System.Drawing.Point(304, 87);
+            this.DTNgayNhap.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DTNgayNhap.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DTNgayNhap.Name = "DTNgayNhap";
+            this.DTNgayNhap.Size = new System.Drawing.Size(225, 38);
+            this.DTNgayNhap.TabIndex = 12;
+            this.DTNgayNhap.Value = new System.DateTime(2024, 7, 31, 14, 23, 29, 337);
+            // 
+            // cbbSP
+            // 
+            this.cbbSP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbbSP.BackColor = System.Drawing.Color.Transparent;
+            this.cbbSP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.cbbSP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSP.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbbSP.ForeColor = System.Drawing.Color.DarkGray;
+            this.cbbSP.ItemHeight = 30;
+            this.cbbSP.Location = new System.Drawing.Point(565, 23);
+            this.cbbSP.Name = "cbbSP";
+            this.cbbSP.Size = new System.Drawing.Size(221, 36);
+            this.cbbSP.TabIndex = 8;
             // 
             // UC_KhoHang
             // 
@@ -373,13 +373,13 @@
         private Guna.UI2.WinForms.Guna2Button btnSua;
         private Guna.UI2.WinForms.Guna2TextBox txtMaKho;
         private Guna.UI2.WinForms.Guna2Button btnThem;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2ComboBox cbbNCC;
         private Guna.UI2.WinForms.Guna2TextBox txtGiaNhap;
         private Guna.UI2.WinForms.Guna2TextBox txtSL;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbSP;
-        private Guna.UI2.WinForms.Guna2DateTimePicker DTNgayNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn SanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn NhaCungCap;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DTNgayNhap;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbSP;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

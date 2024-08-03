@@ -70,7 +70,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_TenSP.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_TenSP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenSP.Location = new System.Drawing.Point(182, 103);
-            this.txt_TenSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_TenSP.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TenSP.Name = "txt_TenSP";
             this.txt_TenSP.PasswordChar = '\0';
             this.txt_TenSP.PlaceholderText = "";
@@ -121,7 +121,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_MaTH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_MaTH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaTH.Location = new System.Drawing.Point(4, 160);
-            this.txt_MaTH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_MaTH.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MaTH.Name = "txt_MaTH";
             this.txt_MaTH.PasswordChar = '\0';
             this.txt_MaTH.PlaceholderText = "";
@@ -141,7 +141,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_MaLoai.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_MaLoai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaLoai.Location = new System.Drawing.Point(4, 103);
-            this.txt_MaLoai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_MaLoai.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MaLoai.Name = "txt_MaLoai";
             this.txt_MaLoai.PasswordChar = '\0';
             this.txt_MaLoai.PlaceholderText = "";
@@ -161,7 +161,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_TrangThai.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_TrangThai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TrangThai.Location = new System.Drawing.Point(4, 47);
-            this.txt_TrangThai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_TrangThai.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TrangThai.Name = "txt_TrangThai";
             this.txt_TrangThai.PasswordChar = '\0';
             this.txt_TrangThai.PlaceholderText = "";
@@ -181,7 +181,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_Url.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Url.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Url.Location = new System.Drawing.Point(4, 4);
-            this.txt_Url.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Url.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Url.Name = "txt_Url";
             this.txt_Url.PasswordChar = '\0';
             this.txt_Url.PlaceholderText = "";
@@ -233,7 +233,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_SoLuong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_SoLuong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoLuong.Location = new System.Drawing.Point(182, 160);
-            this.txt_SoLuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_SoLuong.Margin = new System.Windows.Forms.Padding(4);
             this.txt_SoLuong.Name = "txt_SoLuong";
             this.txt_SoLuong.PasswordChar = '\0';
             this.txt_SoLuong.PlaceholderText = "";
@@ -253,7 +253,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_DonGia.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_DonGia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_DonGia.Location = new System.Drawing.Point(182, 212);
-            this.txt_DonGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_DonGia.Margin = new System.Windows.Forms.Padding(4);
             this.txt_DonGia.Name = "txt_DonGia";
             this.txt_DonGia.PasswordChar = '\0';
             this.txt_DonGia.PlaceholderText = "";
@@ -273,7 +273,7 @@ namespace APP_QuanLiDungCuAmNhac.My_Control
             this.txt_MoTa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_MoTa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MoTa.Location = new System.Drawing.Point(182, 266);
-            this.txt_MoTa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_MoTa.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MoTa.Name = "txt_MoTa";
             this.txt_MoTa.PasswordChar = '\0';
             this.txt_MoTa.PlaceholderText = "";

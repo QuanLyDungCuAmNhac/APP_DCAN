@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using APP_QuanLiDungCuAmNhac.Forms;
+using APP_QuanLiDungCuAmNhac.My_Control;
 
 namespace APP_QuanLiDungCuAmNhac.UserControls
 {
@@ -38,11 +40,7 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
         public void LoadCBBSP()
         {
-            var SPList = KhoBLL.LoadSP();
-            SPList.Insert(0, new SanPham { MaSP = -1, TenSP = "Tat ca" });
-            cbbSP.DataSource = SPList;
-            cbbSP.DisplayMember = "TenSP";
-            cbbSP.ValueMember = "MaSP";
+           
         }
 
         public void LoadCBBNCC()
@@ -102,39 +100,43 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 LoadDGVKho();
             }
         }
-
+        private FormMain _mainForm;
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (int.Parse(cbbNCC.SelectedValue.ToString()) == -1)
-            {
-                MessageBox.Show("Vui lòng chọn nhà cung cấp");
-                return;
-            }
-            if (int.Parse(cbbSP.SelectedValue.ToString()) == -1)
-            {
-                MessageBox.Show("Vui lòng chọn sản phẩm");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtSL.Text))
-            {
-                MessageBox.Show("Vui lòng nhập số lượng");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtGiaNhap.Text))
-            {
-                MessageBox.Show("Vui lòng nhập giá");
-                return;
-            }
-          
-            KhoHang kh = new KhoHang();
-            kh.MaNCC = int.Parse(cbbNCC.SelectedValue.ToString());
-            kh.MaSP = int.Parse(cbbSP.SelectedValue.ToString());
-            kh.SoLuongNhap = int.Parse(txtSL.Text);
-            kh.NgayNhap = DTNgayNhap.Value.Date;
-            kh.GiaNhap = float.Parse(txtGiaNhap.Text);
-            KhoBLL.InsertKho(kh);
-            MessageBox.Show("Thêm thành công");
-            LoadDGVKho();  
+            frmThemVaoKho frmThemVaoKho = new frmThemVaoKho();
+            frmThemVaoKho.ShowDialog();
+            //if (int.Parse(cbbNCC.SelectedValue.ToString()) == -1)
+            //{
+            //    MessageBox.Show("Vui lòng chọn nhà cung cấp");
+            //    return;
+            //}
+            //if (int.Parse(cbbSP.SelectedValue.ToString()) == -1)
+            //{
+            //    MessageBox.Show("Vui lòng chọn sản phẩm");
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(txtSL.Text))
+            //{
+            //    MessageBox.Show("Vui lòng nhập số lượng");
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(txtGiaNhap.Text))
+            //{
+            //    MessageBox.Show("Vui lòng nhập giá");
+            //    return;
+            //}
+
+            //KhoHang kh = new KhoHang();
+            //kh.MaNCC = int.Parse(cbbNCC.SelectedValue.ToString());
+            //kh.MaSP = int.Parse(cbbSP.SelectedValue.ToString());
+            //kh.SoLuongNhap = int.Parse(txtSL.Text);
+            //kh.NgayNhap = DTNgayNhap.Value.Date;
+            //kh.GiaNhap = float.Parse(txtGiaNhap.Text);
+            //KhoBLL.InsertKho(kh);
+            //MessageBox.Show("Thêm thành công");
+            //LoadDGVKho();  
+
+
         }
 
         private void btnSua_Click(object sender, EventArgs e)

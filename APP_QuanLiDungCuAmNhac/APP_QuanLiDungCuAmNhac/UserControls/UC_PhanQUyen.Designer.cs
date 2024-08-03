@@ -34,6 +34,9 @@
             this.DGVNhom = new System.Windows.Forms.DataGridView();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.CBBManHinh = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVNhom)).BeginInit();
             this.SuspendLayout();
@@ -41,11 +44,12 @@
             // DGVPQ
             // 
             this.DGVPQ.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DGVPQ.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
             this.DGVPQ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVPQ.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DM_ManHinh,
             this.QL_NhomNguoiDung});
-            this.DGVPQ.Location = new System.Drawing.Point(538, 95);
+            this.DGVPQ.Location = new System.Drawing.Point(538, 127);
             this.DGVPQ.Name = "DGVPQ";
             this.DGVPQ.RowHeadersWidth = 51;
             this.DGVPQ.RowTemplate.Height = 24;
@@ -77,8 +81,9 @@
             // DGVNhom
             // 
             this.DGVNhom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DGVNhom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
             this.DGVNhom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVNhom.Location = new System.Drawing.Point(22, 95);
+            this.DGVNhom.Location = new System.Drawing.Point(22, 127);
             this.DGVNhom.Name = "DGVNhom";
             this.DGVNhom.RowHeadersWidth = 51;
             this.DGVNhom.RowTemplate.Height = 24;
@@ -120,10 +125,47 @@
             this.CBBManHinh.Size = new System.Drawing.Size(267, 36);
             this.CBBManHinh.TabIndex = 6;
             // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(22, 90);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(189, 31);
+            this.guna2HtmlLabel1.TabIndex = 7;
+            this.guna2HtmlLabel1.Text = "Danh mục nhóm";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(538, 90);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(195, 31);
+            this.guna2HtmlLabel2.TabIndex = 8;
+            this.guna2HtmlLabel2.Text = "Danh mục quyền";
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(551, 39);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(176, 31);
+            this.guna2HtmlLabel3.TabIndex = 9;
+            this.guna2HtmlLabel3.Text = "Chọn màn hình";
+            // 
             // UC_PhanQUyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.guna2HtmlLabel3);
+            this.Controls.Add(this.guna2HtmlLabel2);
+            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.CBBManHinh);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.DGVNhom);
@@ -134,6 +176,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVPQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVNhom)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -145,5 +188,8 @@
         private System.Windows.Forms.DataGridView DGVNhom;
         private Guna.UI2.WinForms.Guna2Button btnThem;
         private Guna.UI2.WinForms.Guna2ComboBox CBBManHinh;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }

@@ -19,5 +19,11 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             InitializeComponent();
             _mainForm = mainForm;
         }
+
+        private void btnQLTH_Click(object sender, EventArgs e)
+        {
+            ThongKeDoanhThu uc = new ThongKeDoanhThu();
+            _mainForm.AddControlsToPanel(uc);
+        }
     }
 }

@@ -15,43 +15,50 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 {
     public partial class ThongKeDoanhThu : UserControl
     {
-        BLLHoaDon HoaDonBLL = new BLLHoaDon();
+        BLLThongKe ThongKeBLL = new BLLThongKe();
         public ThongKeDoanhThu()
         {
             InitializeComponent();
+            cbbNam.SelectedIndexChanged += CbbNam_SelectedIndexChanged;
+            this.Load += ThongKeDoanhThu_Load;
         }
 
-        private void cbbThang_SelectedIndexChanged(object sender, EventArgs e)
+        private void ThongKeDoanhThu_Load(object sender, EventArgs e)
         {
-            if (cbbThang.SelectedItem != null)
+            InitializeComboBox();
+           
+
+        }
+
+        private void CbbNam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedYear = (int)cbbNam.SelectedItem;
+            List<DoanhThuThangDTO> doanhThuThang = ThongKeBLL.LayDoanhThuTheoThang(selectedYear);
+            HienThiBieuDo(doanhThuThang);
+        }
+
+        private void HienThiBieuDo(List<DoanhThuThangDTO> doanhThuThang)
+        {
+            chartDoanhThu.Series.Clear();
+            Series series = new Series("Doanh Thu");
+            series.ChartType = SeriesChartType.Column;
+
+            foreach (var dt in doanhThuThang)
             {
-                int month = int.Parse(cbbThang.SelectedItem.ToString());
-                DisplayDoanhThu(month);
+                series.Points.AddXY(dt.Thang, dt.TongTien);
             }
+
+            chartDoanhThu.Series.Add(series);
         }
 
-        private void LoadThang()
+        private void InitializeComboBox()
         {
-            // Giả sử bạn có một danh sách tháng, có thể thay đổi cách nạp dữ liệu phù hợp với yêu cầu
-            for (int i = 1; i <= 12; i++)
+            // Giả sử bạn muốn hiển thị các năm từ 2020 đến 2024
+            for (int year = 2024; year >= 2020; year--)
             {
-                cbbThang.Items.Add(i.ToString());
+                cbbNam.Items.Add(year);
             }
-        }
-
-        private void DisplayDoanhThu(int month)
-        {
-            LoadChart(month);
-        }
-
-        private void LoadChart(int month)
-        {
-            
-        }
-
-        private void chartDoanhThu_Click(object sender, EventArgs e)
-        {
-
+            cbbNam.SelectedIndex = 0; // Chọn năm đầu tiên mặc định
         }
     }
 }

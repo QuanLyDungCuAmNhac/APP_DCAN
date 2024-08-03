@@ -122,6 +122,7 @@
     <Compile Include="BLLNND.cs" />
     <Compile Include="BLLPhanQuyen.cs" />
     <Compile Include="BLLSanPham.cs" />
+    <Compile Include="BLLThongKe.cs" />
     <Compile Include="BLLThuongHieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

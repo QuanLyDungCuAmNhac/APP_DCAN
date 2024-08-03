@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
@@ -23,9 +24,17 @@ namespace DAL
 
         public bool Login(string TenDangNhap, string MatKhau)
         {
-            var nv = qldc.NhanViens.SingleOrDefault(n => n.Username == TenDangNhap && n.Password == MatKhau);
+            var nv = qldc.NhanViens.SingleOrDefault(n => n.Username == TenDangNhap && n.Password == HashPassword(MatKhau));
             return nv != null;
             //return true;
+        }
+        private string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
         }
 
         public bool getTrangThai(string UserName)

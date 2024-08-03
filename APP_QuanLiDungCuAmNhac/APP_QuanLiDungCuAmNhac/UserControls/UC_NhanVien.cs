@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace APP_QuanLiDungCuAmNhac.UserControls
 {
@@ -77,6 +79,12 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            // Kiểm tra mã nhân viên phải là số
+            if (!int.TryParse(txtMaNV.Text, out int maNV))
+            {
+                MessageBox.Show("Mã nhân viên phải là số");
+                return;
+            }
             if (string.IsNullOrEmpty(txtTenNV.Text))
             {
                 MessageBox.Show("Không được để trống mã nhân viên");
@@ -87,6 +95,18 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 MessageBox.Show("Không được để trống email");
                 return;
             }
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("email không đúng định dạng");
+                return;
+            }
+
+            //if (!IsValidPhoneNumber(txtSDT.Text))
+            //{
+            //    MessageBox.Show("Không được để trống hoặc số điện thoại không đúng định dạng");
+            //    return;
+            //}
+
             if (string.IsNullOrEmpty(txtSDT.Text))
             {
                 MessageBox.Show("Không được để trống số điện thoại");
@@ -108,12 +128,12 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
                 return ;
             }    
             NhanVien nv = new NhanVien();
-            nv.MaNV = int.Parse(txtMaNV.Text);
-            nv.TenNV = txtTenNV.Text;
-            nv.SDT = txtSDT.Text;
-            nv.Email = txtEmail.Text;
-            nv.Username = txtUserName.Text;
-            nv.Password = txtPassword.Text;
+            nv.MaNV = int.Parse(txtMaNV.Text.Trim());
+            nv.TenNV = txtTenNV.Text.Trim();
+            nv.SDT = txtSDT.Text.Trim();
+            nv.Email = txtEmail.Text.Trim();
+            nv.Username = txtUserName.Text.Trim();
+            nv.Password = HashPassword(txtPassword.Text.Trim());
             nv.HoatDong = false;
             NhanVienBLL.InsertNV(nv);
             LoadNV();
@@ -153,7 +173,7 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             nv.SDT = txtSDT.Text;
             nv.Email = txtEmail.Text;
             nv.Username = txtUserName.Text;
-            nv.Password = txtPassword.Text;
+            nv.Password = HashPassword(txtPassword.Text);
             nv.HoatDong = false;
             NhanVienBLL.UpdateNV(nv);
             LoadNV();
@@ -182,6 +202,30 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             NhanVienBLL.XoaNV(int.Parse(txtMaNV.Text));
             LoadNV();
             MessageBox.Show("Xóa thành công");
+        }
+
+        // Hàm kiểm tra định dạng email
+        private bool IsValidEmail(string email)
+        {
+            email = email.Trim(); // Loại bỏ khoảng trắng thừa
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
+        }
+
+        // Hàm kiểm tra định dạng số điện thoại
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            return Regex.IsMatch(phoneNumber.Trim(), @"^[0-9]{10}$");
+        }
+
+        // Hàm mã hóa mật khẩu
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
         }
     }
 }

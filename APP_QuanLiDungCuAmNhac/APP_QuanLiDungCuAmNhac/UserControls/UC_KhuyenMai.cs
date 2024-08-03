@@ -142,9 +142,14 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             {
                 MessageBox.Show("Không được để trống giảm giá");
                 return;
-            }        
-         
-                KhuyenMai KM = new KhuyenMai();
+            }
+            if (DTBatDau.Value > DTKetThuc.Value)
+            {
+                MessageBox.Show("Vui lòng nhập ngày bắt đầu nhỏ hơn ngày kết thúc");
+                return;
+            }
+
+            KhuyenMai KM = new KhuyenMai();
                 KM.MaKM = int.Parse(txtMaKM.Text);
                 KM.TenKM = txtTenKM.Text;
                 KM.GiamGia = float.Parse(txtGiamGia.Text);
@@ -162,6 +167,11 @@ namespace APP_QuanLiDungCuAmNhac.UserControls
             if (string.IsNullOrEmpty(txtTenKM.Text))
             {
                 MessageBox.Show("Không được để trống tên khuyến mãi");
+                return;
+            }
+            if (DTBatDau.Value > DTKetThuc.Value)
+            {
+                MessageBox.Show("Vui lòng nhập ngày bắt đầu nhỏ hơn ngày kết thúc");
                 return;
             }
             if (string.IsNullOrEmpty(txtGiamGia.Text))

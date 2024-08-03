@@ -32,8 +32,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.cbbThang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.chartDoanhThu = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cbbNam = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThu)).BeginInit();
             this.SuspendLayout();
@@ -41,28 +41,12 @@
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.chartDoanhThu);
-            this.guna2Panel1.Controls.Add(this.cbbThang);
+            this.guna2Panel1.Controls.Add(this.cbbNam);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1033, 662);
             this.guna2Panel1.TabIndex = 0;
-            // 
-            // cbbThang
-            // 
-            this.cbbThang.BackColor = System.Drawing.Color.Transparent;
-            this.cbbThang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbThang.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbThang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbThang.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbThang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbThang.ItemHeight = 30;
-            this.cbbThang.Location = new System.Drawing.Point(22, 45);
-            this.cbbThang.Name = "cbbThang";
-            this.cbbThang.Size = new System.Drawing.Size(325, 36);
-            this.cbbThang.TabIndex = 2;
-            this.cbbThang.SelectedIndexChanged += new System.EventHandler(this.cbbThang_SelectedIndexChanged);
             // 
             // chartDoanhThu
             // 
@@ -76,10 +60,24 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartDoanhThu.Series.Add(series1);
-            this.chartDoanhThu.Size = new System.Drawing.Size(772, 353);
+            this.chartDoanhThu.Size = new System.Drawing.Size(953, 463);
             this.chartDoanhThu.TabIndex = 3;
             this.chartDoanhThu.Text = "chart1";
-            this.chartDoanhThu.Click += new System.EventHandler(this.chartDoanhThu_Click);
+            // 
+            // cbbNam
+            // 
+            this.cbbNam.BackColor = System.Drawing.Color.Transparent;
+            this.cbbNam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbNam.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbNam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbNam.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbbNam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbNam.ItemHeight = 30;
+            this.cbbNam.Location = new System.Drawing.Point(52, 63);
+            this.cbbNam.Name = "cbbNam";
+            this.cbbNam.Size = new System.Drawing.Size(325, 36);
+            this.cbbNam.TabIndex = 2;
             // 
             // ThongKeDoanhThu
             // 
@@ -97,7 +95,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbThang;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbNam;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThu;
     }
 }

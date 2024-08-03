@@ -121,6 +121,7 @@
     <Compile Include="DALNND.cs" />
     <Compile Include="DALPhanQuyen.cs" />
     <Compile Include="DALSanPham.cs" />
+    <Compile Include="DALThongKe.cs" />
     <Compile Include="DALThuongHieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
